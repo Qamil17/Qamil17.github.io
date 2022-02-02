@@ -1,0 +1,78 @@
+html body {
+  color: white;
+  font-family: "Signika", sans-serif;
+  background: black;
+}
+h1 {
+  text-shadow: 10px 10px 20px rgba(0,0,0, 0.6);
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+}
+.backimg {
+  background-image: url("https://wielkopolskamagazyn.pl/wp-content/uploads/2019/02/1-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+  position: fixed;
+}
+.lefttd {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 5px 5px;
+  background-color: rgba(60,60,60, 0.6)
+}
+.background {
+  background-color: rgba(0,0,0, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  position: fixed;
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 2;
+  padding: 20px;
+  display: flex;
+  border: 10px;
+  width: 95%;
+  height: 75%;
+  display: flex;
+}
+
+.container {
+  padding: 10px 10px;
+  /* margin: 30px 30px;  */
+  background-color: rgba(60,60,60, 0.6);
+  border-radius: 9px;
+  width: 100%;
+  height: 90%;
+}
+.containerul {
+  padding: 10px 10px;
+  /* margin: 30px 30px;  */
+  background-color: rgba(60,60,60, 0.6);
+  border-radius: 9px;
+  width: 90%;
+  height: 90%;
+}
+.containerli {
+  margin-bottom: 8px;
+}
