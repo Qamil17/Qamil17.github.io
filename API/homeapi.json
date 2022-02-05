@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Test tytułu",
+        "description": "Testowy dłuższy opis, który pozwala mi się dowiedzieć, czy forma opisów przy postach będzie dobra i się zmieści. Najwyżej znajdę jakiś sposób na skrócenie treści",
+        "pic": "https://scontent-waw1-1.xx.fbcdn.net/v/t39.30808-6/264556258_5325154917500638_7791804958477610471_n.jpg?_nc_ohc=qnQi4TGI4ZUAX9gzya_&_nc_ht=scontent-waw1-1.xx&oh=00_AT_MZ6Z0NNu7kj3wVTXnwyIvH0J6f2DITo2zjJf1eM61OQ&oe=620412EC",
+        "link": "",
+        "icon":"right-arrow",
+        "category": "O aplikacji"
+    },
+    {
+        "title": "Skąd dane?",
+        "description": "Dane są pozyskane ze strony internetowej, która się otwiera po kliknięciu w ten post",
+        "pic": "",
+        "link": "https://psp.opole.pl/prowadzone-interwencje-psp-i-osp-woj-opolskiego/",
+        "icon": "home",
+        "category": "O aplikacji"
+    },
+    {
+        "title": "OSP w Grudzicach nadal pomaga Wojtusiowi!",
+        "description": "Tym razem proszą, aby pomóc mu w postaci przkazania 1% podatku!",
+        "pic": "",
+        "link": "https://www.facebook.com/OSPOpoleGrudzice/",
+        "icon": "home",
+        "category": "Akcja charytatywna"
+    }
+    ]
