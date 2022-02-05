@@ -16,10 +16,26 @@
         "category": "O aplikacji"
     },
     {
-        "title": "OSP w Grudzicach nadal pomaga Wojtusiowi!",
-        "description": "Tym razem proszą, aby pomóc mu w postaci przkazania 1% podatku! \n Kliknij tutaj, aby dowidzieć się więcej!",
-        "pic": "",
+        "title": "OSP w Grudzicach pomagają Wojtusiowi!",
+        "description": "Proszą, aby pomóc w postaci przkazania 1% podatku Niedużemu Wojtkowi! \nKliknij tutaj, aby dowidzieć się więcej!",
+        "pic": "https://scontent-waw1-1.xx.fbcdn.net/v/t39.30808-6/273004107_5562346983781429_342067400301387685_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=HTkq6E8tsAgAX_cGmQ5&_nc_ht=scontent-waw1-1.xx&oh=00_AT_pLhiRIRmUbDycY-pQZjpKSYJGXLbzIKVb4xvQVp_mGA&oe=6203CA72",
         "link": "https://www.facebook.com/OSPOpoleGrudzice/posts/5562347237114737",
+        "icon": "home",
+        "category": "Akcja charytatywna"
+    },
+    {
+        "title": "Pracowita niedziela",
+        "description": "Niedzielę 30 stycznia br. nasi strażacy zapamiętają na długo. Z powodu silnie wiejącego wiatru interweniowaliśmy aż 10 razy! \n \nZdarzenia dotyczyły: \nUszkodzeń elementów dachu: 3 razy; \nPrzewróconych drzew: 3 razy; \nZerwanych kabli elektrycznych: 1 raz; \nPrzewróconych ogrodzeń: 2 razy; \nUszkodzone balkony: 1 raz \nW działaniach uczestniczyły samochody: \n🚒309-15 Man: 5 razy \n🚒309-16 Star: 3 razy \n🚒309-17 Renault: 2 razy \nW sumie na terenie województwa strażacy interweniowali 814 razy, w tym w Opolu i powiecie opolskim 293 razy.",
+        "pic": "https://scontent-waw1-1.xx.fbcdn.net/v/t39.30808-6/272900006_5549460965070031_3457666119082758586_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=nAJLIfNhChMAX-baO-w&_nc_ht=scontent-waw1-1.xx&oh=00_AT_zMR5pbdx6AxXN86hA-AtZkYON36sQP47pxofm38R6NQ&oe=62047141",
+        "link": "https://www.facebook.com/OSPOpoleGrudzice/posts/5549463121736482",
+        "icon": "home",
+        "category": "Interwencje"
+    },
+    {
+        "title": "Niedużywojtek z prezentem świątecznym!🎁🎄",
+        "description": "Wczoraj wieczorem na polecenie św. Mikołaja🎅 wyjechaliśmy do Nieduzywojtek z prezentem świątecznym. Wojtek szybko go rozpakował, a potem sprawdził dokładnie czy nasz sprzęt jest sprawny i czysty🧹. \nPatrząc na jego reakcję możemy śmiało stwierdzić, że niespodzianka się udała🤩",
+        "pic": "",
+        "link": "https://fb.watch/a_sAHLhW7k/",
         "icon": "home",
         "category": "Akcja charytatywna"
     }
