@@ -1,0 +1,234 @@
+[
+    {
+        "question": "Czego się najbardziej wstydzisz?",
+        "category": "normal"
+    },
+    {
+        "question": "Jaki jest twój ulubiony sport?",
+        "category": "normal"
+    },
+    {
+        "question": "Jakie są Twoje największe wady?",
+        "category": "normal"
+    },
+    {
+        "question": "O czym teraz myślisz?",
+        "category": "normal"
+    },
+    {
+        "question": "Jaka jest Twoja ulubiona gra w karty?",
+        "category": "normal"
+    },
+    {
+        "question": "Wierzysz w duchy?",
+        "category": "normal"
+    },
+    {
+        "question": "Jak dużo chciałbyś mieć dzieci?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy spałeś/aś kiedyś pod namiotem?",
+        "category": "normal"
+    },
+    {
+        "question": "Która z obecnych tu osób jest najgorzej ubrana?",
+        "category": "normal"
+    },
+    {
+        "question": "Jakie jest największe kłamstwo, które opowiedziałeś/aś w statusie na social media?",
+        "category": "normal"
+    },
+    {
+        "question": "Jaki jest Twój ulubiony napój?",
+        "category": "normal"
+    },
+    {
+        "question": "Wymień marki ciuchów, które masz na sobie",
+        "category": "normal"
+    },
+    {
+        "question": "Do jakiego kraju chciałbyś/chciałabyś się przeprowadzić?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy prowadziłeś/aś w dzieciństwie pamiętnik?",
+        "category": "normal"
+    },
+    {
+        "question": "Ile masz wzrostu?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy lubisz swoje imię? Jeśli nie, to jakie chciałbyś/chciałabyś mieć?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy lubisz kąpiele w pianie?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy byłeś kiedyś zahipnotyzowany/a?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy lubisz robić zakupy?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy uważasz się za osobę nieśmiałą?",
+        "category": "normal"
+    },
+    {
+        "question": "Kto jest najśmieszniejszy z wszystkich graczy?",
+        "category": "normal"
+    },
+    {
+        "question": "Jaki był najbardziej żenujący moment w Twoim życiu?",
+        "category": "normal"
+    },
+    {
+        "question": "Opisz swój najlepszy dzień życia",
+        "category": "normal"
+    },
+    {
+        "question": "Którego wyzwania w tej grze byś odmówił/a?",
+        "category": "normal"
+    },
+    {
+        "question": "Chciałbyś pocałować kogoś z obecnych tu osób?",
+        "category": "normal"
+    },
+    {
+        "question": "Jaki był twój dziecięcy pseudonim?",
+        "category": "normal"
+    },
+    {
+        "question": "Kto z grupy najgorzej opowiada dowcipy?",
+        "category": "normal"
+    },
+    {
+        "question": "O kim ostatnio śniłeś/aś?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy skłamałeś/aś kiedyś co do ceny prezentu?",
+        "category": "normal"
+    },
+    {
+        "question": "Opowiedz sytuację, w której pierwszy raz pocałowałeś osobę płci przeciwnej",
+        "category": "normal"
+    },
+    {
+        "question": "Jakiego pytania nie chcesz najbardziej usłyszeć w tej grze?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy odzywasz się do swoich ex?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy myślałeś/aś o tym, żeby wziąć narkotyki, ale nie miałeś odwagi ich zdobyć?",
+        "category": "normal"
+    },
+    {
+        "question": "Ile miałaś/eś chłopaków/dziewczyn?",
+        "category": "normal"
+    },
+    {
+        "question": "W jakim wieku pierwszy raz się całowałeś/aś?",
+        "category": "normal"
+    },
+    {
+        "question": "Jak długo wstrzymasz oddech pod wodą?",
+        "category": "normal"
+    },
+    {
+        "question": "Przez cały dzień wolałbyś/aś nosić za ciasną koszulę czy za duże buty?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy miałeś robiony masaż? Jeżeli tak, to przez kogo?",
+        "category": "normal"
+    },
+    {
+        "question": "Czego się boisz?",
+        "category": "normal"
+    },
+    {
+        "question": "Chodzisz do kościoła?",
+        "category": "normal"
+    },
+    {
+        "question": "Opisz swoją pierwsza randkę",
+        "category": "normal"
+    },
+    {
+        "question": "Czy kiedykolwiek podglądałeś swoich rówieśników?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy podobał Ci się ktoś tej samej płci co Ty?",
+        "category": "normal"
+    },
+    {
+        "question": "Jakie jest Twoje najlepsze wspomnienie z dzieciństwa?",
+        "category": "normal"
+    },
+    {
+        "question": "Jakie jest Twoje ulubione miejsce do spędzania wolnego czasu?",
+        "category": "normal"
+    },
+    {
+        "question": "Gdybyś miał/a nieograniczoną ilość pieniędzy do wydania – jak byś je wykorzystał/a",
+        "category": "normal"
+    },
+    {
+        "question": "Gdyby twój dom się palił, które 3 rzeczy być zabrał/a ze sobą?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy lubisz grać w koszykówkę?",
+        "category": "normal"
+    },
+    {
+        "question": "Opisz swój najlepszy dzień życia",
+        "category": "normal"
+    },
+    {
+        "question": "Do oglądania jakiego programu telewizyjnego nie przyznajesz się?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy kiedykolwiek coś ukradłeś/aś?",
+        "category": "normal"
+    },
+    {
+        "question": "Gdybyś mógł zmienić jedną rzecz w swoim wyglądzie zewnętrznym, co by to było?",
+        "category": "normal"
+    },
+    {
+        "question": "Gdybyś mógł zrobić wszystko, co byś zrobił?",
+        "category": "normal"
+    },
+    {
+        "question": "Która z obecnych tu osób jest najgorzej ubrana?",
+        "category": "normal"
+    },
+    {
+        "question": "Kiedy pierwszy raz się całowałeś/aś?",
+        "category": "normal"
+    },
+    {
+        "question": "Jeżeli mógłbyś/mogłabyś pocałować dowolną osobę na świecie, kto byś wybrał/a?",
+        "category": "normal"
+    },
+    {
+        "question": "Komu ostatnio powiedziałeś słowa „Kocham Cię”?",
+        "category": "normal"
+    },
+    {
+        "question": "Czy korzystałeś z portali randkowych? Jakich?",
+        "category": "normal"
+    }
+]
