@@ -9,7 +9,18 @@ function getRandomInt(max) {
 
 
 function dziala() {
-    $.get( "api-prawda.json", function( data ) {
+    $.get( "api-prawda-dirty.json", function( data ) {
+        $( ".result" ).html( data );
+        console.log( "Load was performed." );
+        random=getRandomInt(data.length);
+        console.log(data[random]);
+        nowq = data[random].question;
+        console.log(nowq);
+        $("#pytanie").text(data[random].question);
+    });
+}
+function dzialaw() {
+    $.get( "api-wyzwanie.json", function( data ) {
         $( ".result" ).html( data );
         console.log( "Load was performed." );
         random=getRandomInt(data.length);
