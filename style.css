@@ -18,7 +18,7 @@ body {
     /* background-color: linear-gradient(245.58deg, #4d9559 0%, #38703d 28.53%, #133917 75.52%); */
     /* background: linear-gradient(245.58deg, #653886 0%, #291d3b 28.53%, #0c0714 75.52%); */
     /* color: aliceblue; */
-    width: 100vw;
+    /* width: 100vw;÷ */
 
 }
 
@@ -220,10 +220,17 @@ footer .links li {
 }
 footer .fit {
     background-color: rgba(218, 218, 218, 0.486);
-    padding: 20px;
+    padding: 30px 70px;
     height: 100%;
     color: #000814;
     border-radius: 15px;
+
+}
+footer li, a, i, h3 {
+    color: #000814;
+}
+footer i {
+    font-weight: 600;
 }
 .low {
     text-align: center;
