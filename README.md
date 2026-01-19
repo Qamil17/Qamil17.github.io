@@ -1,2 +1,0 @@
-# prawda-czy-wyzwanie
- 

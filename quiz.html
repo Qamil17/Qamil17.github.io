@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ 1:1 Z ORYGINAŁEM</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            color: #1c1e21;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+        .header {
+            text-align: center;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 35px;
+        }
+        .header h1 { margin: 0 0 10px 0; color: #2c3e50; }
+        .quiz-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            border-left: 6px solid #1877f2;
+        }
+        .question-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .question-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0 25px 0;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+        }
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fff;
+        }
+        .option-item:hover {
+            background-color: #f1f8ff;
+            border-color: #bad6f7;
+        }
+        .option-item.selected {
+            border-color: #1877f2;
+            background-color: #e7f3ff;
+        }
+        .option-item input {
+            margin-right: 15px;
+            margin-top: 5px;
+            transform: scale(1.3);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .option-content {
+            width: 100%;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+        .check-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        .check-btn:hover { background-color: #218838; }
+        .check-btn:disabled { background-color: #95a5a6; cursor: not-allowed; }
+        
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            font-size: 1.05em;
+        }
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .feedback.wrong {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .reset-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        .reset-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .reset-btn:hover { transform: scale(1.05); background-color: #c82333; }
+        .score { font-weight: bold; margin-top: 10px; color: #555; font-size: 1.1em; }
+        .missing-img {
+            background: #fff3cd; color: #856404; padding: 10px;
+            border-radius: 5px; font-size: 0.9em; display: none; margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Egzamin: Analiza Matematyczna</h1>
+        <p>Pytania i odpowiedzi identyczne jak w załącznikach.</p>
+        <div class="score" id="score-display">Wynik: 0/0</div>
+    </div>
+
+    <div id="quiz-area"></div>
+
+    <div class="reset-container">
+        <button class="reset-btn" onclick="initQuiz()">🔄 Losuj Pytania</button>
+    </div>
+
+    <script>
+        // Baza danych ze szczegółowymi odpowiedziami 1:1
+        const rawDb = [
+            // --- PLIK: 61f5ccec... ---
+            {
+                question: "Według twierdzenia de L'Hospitala: \\(\\lim_{x\\to z_0} \\frac{f(x)}{g(x)} = \\lim_{x\\to z_0} \\left( \\frac{f(x)}{g(c)} \\right)'\\) (wybrać właściwą odpowiedź)",
+                imgSrc: "61f5ccec-e07d-4aa1-b310-4076afa77c40.jpg",
+                answers: [
+                    { text: "Prawda", correct: false },
+                    { text: "Fałsz", correct: true }
+                ]
+            },
+            {
+                question: "Dla dwukrotnie różniczkowalnej funkcji \\(f(x)\\) nierówność \\(f''(x) < 0\\) w przedziale \\((a, b)\\) jest warunkiem wystarczającym (wybrać prawidłową odpowiedź)",
+                imgSrc: "61f5ccec-e07d-4aa1-b310-4076afa77c40.jpg",
+                answers: [
+                    { text: "1. na wypukłość funkcji w przedziale \\((a, b)\\)", correct: false },
+                    { text: "2. wzrastania funkcji w przedziale \\((a, b)\\)", correct: false },
+                    { text: "3. różniczkowalności funkcji w przedziale \\((a, b)\\)", correct: false },
+                    { text: "4. na wklęsłość funkcji w przedziale \\((a, b)\\)", correct: true },
+                    { text: "5. malenia funkcji w przedziale \\((a, b)\\)", correct: false }
+                ]
+            },
+            {
+                question: "Zaznacz właściwą odpowiedź: \\(\\lim_{n\\to \\infty} \\sqrt[n]{n} =\\)",
+                imgSrc: "61f5ccec-e07d-4aa1-b310-4076afa77c40.jpg",
+                answers: [
+                    { text: "a. -∞", correct: false },
+                    { text: "b. 0", correct: false },
+                    { text: "c. ∞", correct: false },
+                    { text: "d. 1", correct: true },
+                    { text: "e. +∞", correct: false }
+                ]
+            },
+
+            // --- PLIK: 98b19ae1... ---
+            {
+                question: "Funkcja \\(f(x) = \\text{tg}^3 \\left(2^{\\sqrt[3]{\\sin^7 x}}\\right)\\) jest superpozycją funkcji podstawowych:",
+                imgSrc: "98b19ae1-6de7-4734-b6d2-81dee84abb40.jpg",
+                answers: [
+                    { text: "a. \\(t = \\sin^7 x, u = \\sqrt[3]{t}, v = 2^t, y = \\text{tg}^3 v\\)", correct: false },
+                    { text: "b. \\(t = \\sin^{3/7} x, v = 2^t, w = \\text{tg } v, y = w^3\\)", correct: false },
+                    { text: "c. \\(t = \\sin^7 x, u = \\sqrt[3]{t}, v = 2^x, y = \\text{tg}^3 v\\)", correct: false },
+                    { text: "d. \\(t = \\sin x, u = \\sin^{7/3} x, u = 2^t, v = u^3, y = \\text{tg } v\\)", correct: false },
+                    { text: "e. \\(t = \\sin x, u = t^{7/3}, v = 2^u, w = \\text{tg } v, y = w^3\\)", correct: true }
+                ]
+            },
+            {
+                question: "Pod jakim kątem jest nachylona względem osi \\(OX\\) styczna do wykresu funkcji w każdym punkcie z przedziału malenia funkcji",
+                imgSrc: "98b19ae1-6de7-4734-b6d2-81dee84abb40.jpg",
+                answers: [
+                    { text: "1. prostym", correct: false },
+                    { text: "2. rozwartym", correct: true },
+                    { text: "3. ostrym", correct: false },
+                    { text: "4. dowolnym", correct: false }
+                ]
+            },
+
+            // --- PLIK: 18a24901... ---
+            {
+                question: "Na których przedziałach pochodna rzędu drugiego funkcji \\(f\\), wykres której ma postać na rysunku, jest dodatnia: \\(f''(x) > 0\\)?",
+                imgSrc: "18a24901-6108-418f-b0c1-98eb2af8fdaa.jpg",
+                answers: [
+                    { text: "a. \\((x_1, x_3) \\cup (x_5, x_7) \\cup (x_9, b)\\)", correct: true },
+                    { text: "b. \\((x_4, x_6) \\cup (x_8, b)\\)", correct: false },
+                    { text: "c. \\((a, x_1) \\cup (x_2, x_4) \\cup (x_6, x_8)\\)", correct: false },
+                    { text: "d. \\((a, x_1) \\cup (x_3, x_5) \\cup (x_7, x_9)\\)", correct: false },
+                    { text: "e. \\((x_2, x_4) \\cup (x_6, x_8)\\)", correct: false }
+                ]
+            },
+
+            // --- PLIK: a2b7e77c... (Pytanie 8 - jeden garb) ---
+            {
+                question: "Wymienić wszystkie punkty \\(x_i\\), w których pochodna funkcji \\(f\\), wykres której na rysunku, jest równa zero: \\(f'(x_i) = 0\\)",
+                imgSrc: "a2b7e77c-c512-428d-87e6-cc65439bc266.jpg",
+                answers: [
+                    { text: "a. \\(x_1, x_3, x_7\\).", correct: false },
+                    { text: "b. \\(x_2, x_5, x_7, x_9\\)", correct: true },
+                    { text: "c. \\(x_1, x_5, x_7, x_9\\).", correct: false },
+                    { text: "d. \\(x_1, x_2, x_3, x_5, x_7, x_9\\).", correct: false },
+                    { text: "e. wszystkie.", correct: false }
+                ]
+            },
+            {
+                question: "Wzór na całkowanie przez części ma postać (wybrać prawidłową odpowiedź)",
+                imgSrc: "a2b7e77c-c512-428d-87e6-cc65439bc266.jpg",
+                answers: [
+                    { text: "1. \\(\\int udv = \\frac{u}{v} + \\int vdu\\)", correct: false },
+                    { text: "2. \\(\\int udv = \\frac{v}{u} - \\int vdu\\)", correct: false },
+                    { text: "3. \\(\\int udv = u \\cdot v - \\int vdu\\)", correct: true },
+                    { text: "4. \\(\\int udv = u \\cdot v + \\int vdu\\)", correct: false },
+                    { text: "5. \\(\\int udv = \\frac{u}{v} - \\int vdu\\)", correct: false }
+                ]
+            },
+
+            // --- PLIK: a18bcb64... ---
+            {
+                question: "Które punkty są punktami nieciągłości drugiego rodzaju funkcji \\(f\\), której wykres ma postać",
+                imgSrc: "a18bcb64-ffce-441c-b70f-1b7fa617aa5b.jpg",
+                answers: [
+                    { text: "a. \\(x_3, x_4, x_5\\)", correct: false },
+                    { text: "b. wszystkie.", correct: false },
+                    { text: "c. \\(x_3, x_5\\)", correct: true },
+                    { text: "d. \\(x_2, x_4\\)", correct: false },
+                    { text: "e. \\(x_1, x_3\\)", correct: false }
+                ]
+            },
+
+            // --- PLIK: 6b44cc66... ---
+            {
+                question: "\\(\\int \\frac{dx}{\\sqrt{x-1}} =\\)",
+                imgSrc: "6b44cc66-0a0b-4882-a190-0215b1dc901a.jpg",
+                answers: [
+                    { text: "a. \\(\\frac{x}{\\sqrt{x-1}}\\)", correct: false },
+                    { text: "b. \\(2\\sqrt{x-1}\\).", correct: true },
+                    { text: "c. \\(\\ln(x-1)\\).", correct: false },
+                    { text: "d. \\(\\ln\\sqrt{x-1}\\).", correct: false },
+                    { text: "e. \\(\\ln x\\)", correct: false }
+                ]
+            },
+            {
+                question: "\\(\\lim_{x\\to 0} \\frac{\\log_3(1-x)}{x} =\\) (wybrać właściwą odpowiedź)",
+                imgSrc: "6b44cc66-0a0b-4882-a190-0215b1dc901a.jpg",
+                answers: [
+                    { text: "a. 1", correct: false },
+                    { text: "b. \\(\\ln 3\\)", correct: false },
+                    { text: "c. \\(\\frac{1}{\\ln 3}\\)", correct: true },
+                    { text: "d. 0", correct: false },
+                    { text: "e. \\(\\infty\\)", correct: false }
+                ]
+            },
+            {
+                question: "Zaznacz wskaźnik \\(i\\) punktu \\(x_i\\) na wykresie funkcji \\(f\\), w którym ma miejsce definicja: \\(\\forall \\varepsilon > 0, \\exists \\delta_\\varepsilon > 0, \\forall x: 0 < |x-x_0| < \\delta \\to f(x) > \\frac{1}{\\varepsilon}\\).",
+                imgSrc: "6b44cc66-0a0b-4882-a190-0215b1dc901a.jpg",
+                answers: [
+                    { text: "a. \\(i = 5\\).", correct: false },
+                    { text: "b. \\(i = 3, i = 4, i = 5\\).", correct: false },
+                    { text: "c. \\(i = 4\\).", correct: false },
+                    { text: "d. \\(i = 3\\).", correct: true },
+                    { text: "e. \\(i = 3, i = 5\\).", correct: false }
+                ]
+            },
+
+            // --- PLIK: 46399975... ---
+            {
+                question: "Na rysunku wykres funkcji \\(y = f(x)\\). W którym z punktów \\(x_i (i = 1, 2, ..., 11)\\): \\(f'(x_i) < 0\\)?",
+                imgSrc: "46399975-87dc-4a3e-b9af-f4639c1a7846.jpg",
+                answers: [
+                    { text: "a. \\(x_3, x_9\\)", correct: false },
+                    { text: "b. \\(x_1, x_5, x_6, x_7, x_{11}\\)", correct: false },
+                    { text: "c. w żadnym.", correct: false },
+                    { text: "d. \\(x_2, x_4, x_8, x_{10}\\)", correct: false },
+                    { text: "e. \\(x_2, x_8, b\\)", correct: true }
+                ]
+            },
+            {
+                question: "Czy każdy ciąg ograniczony posiada granicę?",
+                imgSrc: "46399975-87dc-4a3e-b9af-f4639c1a7846.jpg",
+                answers: [
+                    { text: "a. nie każdy.", correct: true },
+                    { text: "b. każdy.", correct: false }
+                ]
+            },
+
+            // --- PLIK: 1e419318... ---
+            {
+                question: "Funkcję \\(F\\) nazywamy pierwotną funkcji \\(f\\) w przedziale \\((a, b)\\), według definicji, jeśli (wybrać prawidłową odpowiedź)",
+                imgSrc: "1e419318-e7de-4f55-917c-d69dcfb0d6f7.jpg",
+                answers: [
+                    { text: "1. \\(F'(x) = -f(x) \\; \\forall x \\in (a, b)\\)", correct: false },
+                    { text: "2. \\(F'(x) = f'(x) \\; \\forall x \\in (a, b)\\)", correct: false },
+                    { text: "3. \\(F'(x) = f(x) \\; \\forall x \\in (a, b)\\)", correct: true },
+                    { text: "4. \\(F(x) = f(x) \\; \\forall x \\in (a, b)\\)", correct: false },
+                    { text: "5. \\(F(x) = f'(x) \\; \\forall x \\in (a, b)\\)", correct: false }
+                ]
+            },
+
+            // --- PLIK: 503a5c81... ---
+            {
+                question: "Jeśli \\(\\lim_{x\\to x_0} f(x) = f(x_0)\\), to funkcję \\(f(x)\\) nazywamy",
+                imgSrc: "503a5c81-c86a-40e1-83cf-d39304d3c2e3.jpg",
+                answers: [
+                    { text: "a. ograniczoną.", correct: false },
+                    { text: "b. różniczkowalną.", correct: false },
+                    { text: "c. wklęsłą.", correct: false },
+                    { text: "d. ciągłą.", correct: true },
+                    { text: "e. rosnącą.", correct: false }
+                ]
+            },
+            {
+                question: "Zaznacz właściwą odpowiedź: Def. Liczbę \\(A\\) nazywamy granicą funkcji \\(f(x)\\) w punkcie \\(x_0\\) i oznaczamy symbolem: \\(\\lim_{x\\to x_0} f(x) = A \\Leftrightarrow\\)",
+                imgSrc: "503a5c81-c86a-40e1-83cf-d39304d3c2e3.jpg",
+                answers: [
+                    { text: "a. \\(\\forall \\varepsilon > 0, \\exists \\delta_\\varepsilon > 0, \\exists x: 0 < |x - x_0| < \\delta \\to |f(x) - A| < \\varepsilon\\).", correct: false },
+                    { text: "b. \\(\\forall \\varepsilon > 0, \\exists \\delta_\\varepsilon > 0, \\forall x: 0 < |x - x_0| < \\delta \\to |f(x) - A| < \\varepsilon\\).", correct: true },
+                    { text: "c. \\(\\forall \\varepsilon > 0, \\exists \\delta_\\varepsilon > 0, \\forall x: |x - x_0| < \\delta \\to |f(x) - A| < \\varepsilon\\).", correct: false },
+                    { text: "d. \\(\\forall \\varepsilon > 0, \\exists \\delta_\\varepsilon > 0, \\forall x: 0 < |x - x_0| < \\varepsilon \\to |f(x) - A| < \\delta\\).", correct: false }
+                ]
+            },
+
+            // --- PLIK: a76b12c3... ---
+            {
+                question: "Czy istnieje granica ciągu \\(\\lim_{n\\to \\infty} (-1)^n\\) i jeśli istnieje to jest równa:",
+                imgSrc: "a76b12c3-73c8-420e-9f4c-5f7f69ec589f.jpg",
+                answers: [
+                    { text: "a. istnieje i \\(\\lim_{n\\to \\infty} (-1)^n = \\pm 1\\).", correct: false },
+                    { text: "b. istnieje i \\(\\lim_{n\\to \\infty} (-1)^n = 1\\).", correct: false },
+                    { text: "c. istnieje i \\(\\lim_{n\\to \\infty} (-1)^n = -1\\).", correct: false },
+                    { text: "d. istnieje i \\(\\lim_{n\\to \\infty} (-1)^n = 0\\).", correct: false },
+                    { text: "e. nie istnieje.", correct: true }
+                ]
+            },
+            {
+                question: "Na rysunku dany jest wykres funkcji \\(f\\). Podać zbiór punktów \\(x\\) w których \\(f'(x) > 0\\) (wybrać prawidłową odpowiedź)",
+                imgSrc: "a76b12c3-73c8-420e-9f4c-5f7f69ec589f.jpg",
+                answers: [
+                    { text: "1. \\((x_4, x_8) \\cup (x_{10}, b)\\)", correct: false },
+                    { text: "2. \\((a, x_1) \\cup (x_3, x_5) \\cup (x_6, x_7) \\cup (x_9, x_{11})\\)", correct: true },
+                    { text: "3. \\((x_5, x_7)\\)", correct: false },
+                    { text: "4. \\((a, x_1) \\cup (x_4, x_8)\\)", correct: false },
+                    { text: "5. \\((a, x_2) \\cup (x_4, x_8) \\cup (x_{10}, b)\\)", correct: false }
+                ]
+            },
+
+            // --- PLIK: 69a24260... ---
+            {
+                question: "Granica funkcji \\(f(x) = \\text{sgn}(x)\\) (wykres na rysunku) w punkcie \\(x_0 = 0\\): \\(\\lim_{x\\to 0} f(x) = A\\) (zaznacz prawidłową odpowiedź)",
+                imgSrc: "69a24260-3ff8-4528-b011-30ccbaab99a3.jpg",
+                answers: [
+                    { text: "a. \\(A = -1\\)", correct: false },
+                    { text: "b. \\(A = 0\\)", correct: false },
+                    { text: "c. \\(A = 1\\)", correct: false },
+                    { text: "d. \\(A \\text{ nie istnieje}\\).", correct: true }
+                ]
+            }
+        ];
+
+        // Tasowanie pytań i odpowiedzi (Algorytm Fisher-Yates)
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        let score = 0;
+        let answeredCount = 0;
+
+        function initQuiz() {
+            const container = document.getElementById('quiz-area');
+            container.innerHTML = '';
+            score = 0;
+            answeredCount = 0;
+            document.getElementById('score-display').innerText = `Wynik: 0/${rawDb.length}`;
+
+            // Kopiujemy bazę i mieszamy pytania
+            const questions = JSON.parse(JSON.stringify(rawDb));
+            shuffle(questions);
+
+            questions.forEach((q, qIndex) => {
+                // Mieszamy odpowiedzi
+                shuffle(q.answers);
+
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+
+                const title = document.createElement('div');
+                title.className = 'question-title';
+                title.innerHTML = `Pytanie ${qIndex + 1}: ${q.question}`;
+
+                // Obrazek
+                const img = document.createElement('img');
+                img.src = q.imgSrc;
+                img.className = 'question-image';
+                img.alt = "Wykres/Zadanie";
+                
+                // Obsługa błędu ładowania obrazka
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'missing-img';
+                errorMsg.innerText = "⚠️ Brak pliku: " + q.imgSrc;
+                
+                img.onerror = function() {
+                    img.style.display = 'none';
+                    errorMsg.style.display = 'block';
+                };
+
+                const ul = document.createElement('ul');
+                ul.className = 'options-list';
+
+                q.answers.forEach((ans) => {
+                    const li = document.createElement('li');
+                    li.className = 'option-item';
+                    li.dataset.isCorrect = ans.correct; // Przechowujemy prawdę w atrybucie
+                    li.onclick = () => selectOption(li);
+
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `q-${qIndex}`;
+                    
+                    const span = document.createElement('span');
+                    span.className = 'option-content';
+                    span.innerHTML = ans.text;
+
+                    li.appendChild(radio);
+                    li.appendChild(span);
+                    ul.appendChild(li);
+                });
+
+                const btn = document.createElement('button');
+                btn.className = 'check-btn';
+                btn.innerText = 'Sprawdź';
+                btn.onclick = () => checkAnswer(btn, q);
+
+                const feedback = document.createElement('div');
+                feedback.className = 'feedback';
+
+                card.appendChild(title);
+                card.appendChild(img);
+                card.appendChild(errorMsg);
+                card.appendChild(ul);
+                card.appendChild(btn);
+                card.appendChild(feedback);
+                container.appendChild(card);
+            });
+
+            // Renderowanie wzorów matematycznych
+            MathJax.typesetPromise();
+        }
+
+        function selectOption(element) {
+            const siblings = element.parentElement.children;
+            for (let sib of siblings) {
+                sib.classList.remove('selected');
+                sib.querySelector('input').checked = false;
+            }
+            element.classList.add('selected');
+            element.querySelector('input').checked = true;
+        }
+
+        function checkAnswer(btn, questionData) {
+            const card = btn.parentElement;
+            const selected = card.querySelector('.option-item.selected');
+            const feedback = card.querySelector('.feedback');
+
+            if (!selected) {
+                alert("Wybierz odpowiedź!");
+                return;
+            }
+
+            btn.disabled = true;
+            const isCorrect = selected.dataset.isCorrect === "true";
+            
+            // Znajdź tekst poprawnej odpowiedzi w danych tego pytania
+            const correctObj = questionData.answers.find(a => a.correct === true);
+
+            if (isCorrect) {
+                score++;
+                feedback.innerHTML = `<strong>Świetnie!</strong>`;
+                feedback.className = 'feedback correct';
+            } else {
+                feedback.innerHTML = `<strong>Błąd.</strong><br>Poprawna odpowiedź:<br><strong>${correctObj.text}</strong>`;
+                feedback.className = 'feedback wrong';
+            }
+
+            feedback.style.display = 'block';
+            document.getElementById('score-display').innerText = `Wynik: ${score}/${rawDb.length}`;
+            
+            // Odśwież LaTeX w oknie feedbacku
+            MathJax.typesetPromise([feedback]);
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

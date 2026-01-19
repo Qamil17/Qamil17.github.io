@@ -1,6 +1,0 @@
-/* 
-
- ! sdjdsjbjs
- *whdhgshgs
-    ? webfuebguwbf
-*/
