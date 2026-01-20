@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>~*~ Flutownia.net - DOWNLOAD CENTER ~*~</title>
+    <style>
+        /* STYLE RETRO LAT 2000 */
+        body {
+            background-color: #000033;
+            background-image: linear-gradient(#000033 2px, transparent 2px), linear-gradient(90deg, #000033 2px, transparent 2px);
+            background-size: 50px 50px;
+            color: #CCCCCC;
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            width: 850px;
+            background-color: #000000;
+            border: 2px solid #666666;
+            margin: 20px auto;
+            padding-bottom: 20px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+        }
+
+        .header {
+            text-align: center;
+            background-color: #000066;
+            border-bottom: 3px ridge #333399;
+            padding: 15px;
+        }
+
+        h1 { font-family: "Courier New", monospace; color: #FFFF00; margin: 0; text-shadow: 2px 2px #f00; }
+
+        /* OKNO EKSPLORATORA */
+        .window-frame {
+            background-color: #C0C0C0;
+            border: 2px outset #FFFFFF;
+            padding: 2px;
+            width: 95%;
+            margin: 20px auto;
+            color: black;
+            font-family: Tahoma, sans-serif;
+        }
+
+        .window-header {
+            background: linear-gradient(to right, #000080, #1084d0);
+            color: white;
+            font-weight: bold;
+            padding: 3px 6px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .win-btn {
+            background-color: #C0C0C0;
+            border: 1px outset #FFFFFF;
+            width: 16px;
+            height: 14px;
+            font-size: 10px;
+            line-height: 12px;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+            margin-left: 2px;
+        }
+
+        .address-bar {
+            background-color: #C0C0C0;
+            padding: 5px;
+            border-bottom: 1px solid #808080;
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+        }
+
+        .address-input {
+            width: 100%;
+            border: 1px inset #FFFFFF;
+            background-color: white;
+            padding: 2px;
+            margin-left: 5px;
+        }
+
+        .file-view {
+            background-color: #FFFFFF;
+            border: 2px inset #FFFFFF;
+            height: 350px;
+            overflow-y: scroll;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 20px;
+        }
+
+        /* IKONY PLIKÓW */
+        .item {
+            width: 85px;
+            text-align: center;
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid transparent;
+        }
+
+        .item:hover {
+            background-color: #bee6fd;
+            border: 1px dotted #000080;
+        }
+
+        .icon { font-size: 36px; display: block; margin-bottom: 5px; }
+        .filename { font-size: 11px; word-wrap: break-word; line-height: 1.2; }
+
+        /* MODAL / POPUP */
+        #modalOverlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+        }
+
+        #fileModal {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            user-select: none;
+        }
+
+        #fileModal .window-header {
+            cursor: move;
+        }
+
+        .modal-body {
+            padding: 10px;
+            background: #C0C0C0;
+            text-align: center;
+        }
+
+        .preview-area {
+            background: #444;
+            border: 2px inset #fff;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: white;
+            overflow: hidden;
+        }
+
+        .btn-retro {
+            background: #C0C0C0;
+            border: 2px outset #fff;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-family: Tahoma;
+            font-size: 12px;
+            margin: 5px;
+        }
+
+        .btn-retro:active { border: 2px inset #fff; }
+
+        .status-bar { border-top: 1px solid #888; padding: 2px 5px; font-size: 11px; color: #333; }
+    </style>
+</head>
+<body>
+
+<center>
+    <div class="main-container">
+        <div class="header">
+            <h1>~*~ FLUTOWNIA DOWNLOAD ~*~</h1>
+            <a href="index.html" style="color: #00FF00; font-size: 12px; text-decoration: none;">[ POWRÓT DO MENU ]</a>
+        </div>
+
+        <div class="window-frame">
+            <div class="window-header">
+                <span>Eksplorator Zasobów</span>
+                <div style="display:flex;">
+                    <div class="win-btn">_</div><div class="win-btn">[]</div><div class="win-btn" onclick="location.reload()" style="color:red;">X</div>
+                </div>
+            </div>
+
+            <div class="address-bar">
+                Adres: <input type="text" id="addressInput" class="address-input" readonly>
+            </div>
+
+            <div style="padding: 5px; background: #C0C0C0; border-bottom: 1px solid #808080;">
+                <button class="btn-retro" onclick="goUp()" style="margin:0; padding: 2px 8px;"> [..] Poziom wyżej </button>
+            </div>
+
+            <div id="fileArea" class="file-view"></div>
+
+            <div class="status-bar" id="statusText">Obiektów: 0</div>
+        </div>
+    </div>
+</center>
+
+<div id="modalOverlay">
+    <div id="fileModal" class="window-frame">
+        <div class="window-header" id="modalHandle">
+            <span id="modalTitle">Podgląd Pliku</span>
+            <div class="win-btn" onclick="event.stopPropagation(); closeModal()">X</div>
+        </div>
+        <div class="modal-body">
+            <div id="modalPreview" class="preview-area"></div>
+            <b id="modalFileName">nazwa_pliku.ext</b><br>
+            <div style="margin-top: 10px;">
+                <button class="btn-retro" id="downloadBtn">POBIERZ PLIK</button>
+                <button class="btn-retro" onclick="closeModal()">ZAMKNIJ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let fileSystem = {}; // Pusta zmienna, zostanie wypełniona danymi z JSON
+    let currentPath = [];
+
+    // --- 1. FUNKCJA WCZYTUJĄCA PLIK JSON ---
+    async function loadData() {
+        try {
+            // Pobieramy plik dane.json (musi być w tym samym folderze co html)
+            const response = await fetch('dane.json');
+            if (!response.ok) throw new Error("Błąd ładowania pliku JSON");
+            
+            fileSystem = await response.json();
+            console.log("Dane załadowane pomyślnie!");
+            
+            // Po załadowaniu danych, rysujemy ikony
+            renderIcons();
+        } catch (error) {
+            console.error(error);
+            document.getElementById('fileArea').innerHTML = 
+                "<div style='color:red; padding:20px;'>Błąd: Nie znaleziono pliku dane.json lub serwer blokuje dostęp.</div>";
+        }
+    }
+
+    // --- 2. LOGIKA EKSPLORATORA ---
+    function getFolderFromPath(path) {
+        let current = fileSystem;
+        for (let name of path) {
+            if (current.content) {
+                current = current.content.find(item => item.name === name);
+            }
+        }
+        return current;
+    }
+
+    function renderIcons() {
+        const container = document.getElementById('fileArea');
+        const addr = document.getElementById('addressInput');
+        const status = document.getElementById('statusText');
+        
+        container.innerHTML = '';
+        addr.value = "C:\\Flutownia\\" + (currentPath.join("\\") || "Główny");
+
+        const currentData = getFolderFromPath(currentPath);
+        
+        if (!currentData || !currentData.content) return;
+
+        currentData.content.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'item';
+            let icon = "📄";
+            if (item.type === "folder") icon = "📁";
+            else if (item.format === "img") icon = "🖼️";
+            else if (item.format === "pdf") icon = "📜";
+            else if (item.format === "audio") icon = "🎵";
+
+            el.innerHTML = `<span class="icon">${icon}</span><span class="filename">${item.name}</span>`;
+            el.onclick = () => {
+                if (item.type === "folder") {
+                    currentPath.push(item.name);
+                    renderIcons();
+                } else {
+                    openModal(item);
+                }
+            };
+            container.appendChild(el);
+        });
+        status.innerText = "Obiektów: " + currentData.content.length + " | System plików: FAT32";
+    }
+
+    function goUp() {
+        if (currentPath.length > 0) {
+            currentPath.pop();
+            renderIcons();
+        }
+    }
+
+    // --- 3. LOGIKA MODALA (BEZ SKAKANIA) ---
+    const modal = document.getElementById("fileModal");
+    const handle = document.getElementById("modalHandle");
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    handle.onmousedown = function(e) {
+        if (e.target.classList.contains('win-btn')) return;
+        isDragging = true;
+        const rect = modal.getBoundingClientRect();
+        modal.style.transform = "none";
+        modal.style.left = rect.left + "px";
+        modal.style.top = rect.top + "px";
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+        handle.style.cursor = "grabbing";
+    };
+
+    document.onmousemove = function(e) {
+        if (!isDragging) return;
+        modal.style.left = (e.clientX - offsetX) + "px";
+        modal.style.top = (e.clientY - offsetY) + "px";
+    };
+
+    document.onmouseup = function() {
+        isDragging = false;
+        if(handle) handle.style.cursor = "move";
+    };
+
+    function openModal(file) {
+        const overlay = document.getElementById('modalOverlay');
+        const preview = document.getElementById('modalPreview');
+        document.getElementById('modalFileName').innerText = file.name;
+        
+        overlay.style.display = 'block';
+        preview.innerHTML = ''; 
+
+        const modalWidth = 600;
+        modal.style.transform = "none";
+        modal.style.left = (window.innerWidth / 2 - modalWidth / 2) + "px";
+        modal.style.top = "100px";
+
+        if (file.format === "img") {
+            preview.innerHTML = `<img src="${file.url}" style="max-width: 95%; max-height: 400px; border: 1px solid #000;">`;
+        } 
+        else if (file.format === "pdf") {
+            preview.innerHTML = `<object data="${file.url}" type="application/pdf" width="100%" height="400px"></object>`;
+        }
+        else if (file.format === "audio") {
+            preview.innerHTML = `<div style="text-align:center"><span style="font-size:60px">🎵</span><br><audio controls src="${file.url}"></audio></div>`;
+        }
+        else {
+            preview.innerHTML = `<div style="text-align:center"><span style="font-size:60px">💾</span><p>Podgląd niedostępny.</p></div>`;
+        }
+
+        document.getElementById('downloadBtn').onclick = () => {
+            window.open(file.url, '_blank');
+        };
+    }
+
+    function closeModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+        document.getElementById('modalPreview').innerHTML = '';
+    }
+
+    // START: Wczytujemy dane z zewnątrz
+    loadData();
+</script>
+
+</body>
+</html>
