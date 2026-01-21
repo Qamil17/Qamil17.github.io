@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Egzamin: Prawo Autorskie i Gospodarcze - Wyniki Online</title>
+    <style>
+        /* --- STYL RETRO (Lata 2000) --- */
+        body {
+            background-color: #c0c0c0; /* Windows 95/98 Grey */
+            font-family: "Verdana", "Arial", sans-serif;
+            font-size: 12px;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 750px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-left: 2px solid #ffffff;
+            border-top: 2px solid #ffffff;
+            border-right: 2px solid #404040;
+            border-bottom: 2px solid #404040;
+            padding: 15px;
+        }
+
+        h1 {
+            background-color: #000080; /* Granatowy pasek tytułu */
+            color: #ffffff;
+            font-family: "Tahoma", sans-serif;
+            font-size: 18px;
+            padding: 4px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .student-info {
+            background-color: #e0e0e0;
+            border: 1px solid #808080;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .question-box {
+            border: 1px dotted #808080;
+            background-color: #f7f7f7;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .question-title {
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 5px;
+        }
+
+        .open-question textarea {
+            width: 90%;
+            height: 60px;
+            font-family: "Courier New", monospace;
+            border: 2px inset #ffffff;
+            background-color: #fff;
+        }
+
+        label {
+            display: block;
+            cursor: pointer;
+            padding: 2px;
+        }
+        
+        label:hover {
+            background-color: #ffffcc;
+        }
+
+        .result-msg {
+            font-weight: bold;
+            margin-left: 10px;
+            display: none; /* Ukryte domyślnie */
+        }
+
+        .correct { color: green; }
+        .incorrect { color: red; }
+
+        /* Przycisk w stylu Windows 98 */
+        button {
+            background-color: #c0c0c0;
+            border-top: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #404040;
+            border-bottom: 2px solid #404040;
+            padding: 5px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "MS Sans Serif", "Arial", sans-serif;
+        }
+
+        button:active {
+            border-top: 2px solid #404040;
+            border-left: 2px solid #404040;
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        #summary {
+            border: 2px solid #000080;
+            background-color: #ffffcc;
+            padding: 15px;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <marquee bgcolor="#000000" style="color: #00ff00; font-family: monospace; border: 1px inset white;">
+        SYSTEM SPRAWDZANIA WIEDZY ONLINE *** WERSJA 1.0 *** POWODZENIA
+    </marquee>
+    
+    <h1>Zaliczenie: Prawo Autorskie i Gospodarcze</h1>
+
+    <div class="student-info">
+        <b>Imię i nazwisko:</b> <input type="text" size="30"><br>
+        <b>Numer indeksu:</b> <input type="text" size="10">
+    </div>
+
+    <form id="quizForm">
+        
+        <div class="question-box" id="q1-box">
+            <div class="question-title">1. Podstawowe zasady podejmowania i prowadzenia działalności gospodarczej reguluje ustawa Prawo przedsiębiorców:</div>
+            <label><input type="checkbox" name="q1" value="a"> a. tak</label>
+            <label><input type="checkbox" name="q1" value="b"> b. nie</label>
+            <span class="result-msg" id="msg-q1"></span>
+        </div>
+
+        <div class="question-box open-question">
+            <div class="question-title">2. Utwór w prawie autorskim to...</div>
+            <textarea placeholder="Wpisz definicję utworu (Art. 1 PrAut)..."></textarea>
+            <div style="color: blue; font-size: 10px;">(Pytanie otwarte - niepodlegające automatycznej ocenie)</div>
+        </div>
+
+        <div class="question-box" id="q3-box">
+            <div class="question-title">3. Prawa pokrewne to:</div>
+            <label><input type="checkbox" name="q3" value="a"> a. Prawa do pierwszych wydań</label>
+            <label><input type="checkbox" name="q3" value="b"> b. Prawa do fonogramów</label>
+            <label><input type="checkbox" name="q3" value="c"> c. Prawa do płyt cd</label>
+            <label><input type="checkbox" name="q3" value="d"> d. Wyłącznie prawa do pierwszych wydań</label>
+            <span class="result-msg" id="msg-q3"></span>
+        </div>
+
+        <div class="question-box" id="q4-box">
+            <div class="question-title">4. Autorskie prawa majątkowe obejmują:</div>
+            <label><input type="checkbox" name="q4" value="a"> a. Rozporządzanie utworem</label>
+            <label><input type="checkbox" name="q4" value="b"> b. Zarządzanie utworem</label>
+            <label><input type="checkbox" name="q4" value="c"> c. Oznaczenie utworu imieniem i nazwiskiem</label>
+            <label><input type="checkbox" name="q4" value="d"> d. Decydowanie o pierwszym udostępnieniu utworu</label>
+            <span class="result-msg" id="msg-q4"></span>
+        </div>
+
+        <div class="question-box" id="q5-box">
+            <div class="question-title">5. Plagiatem w prawie autorskim może być:</div>
+            <label><input type="checkbox" name="q5" value="a"> a. Przywłaszczenie sobie całości cudzego utworu</label>
+            <label><input type="checkbox" name="q5" value="b"> b. Przywłaszczenie sobie części cudzego utworu</label>
+            <label><input type="checkbox" name="q5" value="c"> c. Wyłącznie przywłaszczenie sobie ponad 50% cudzego utworu</label>
+            <label><input type="checkbox" name="q5" value="d"> d. Zakupienie utworu bez pisemnej zgody autora</label>
+            <span class="result-msg" id="msg-q5"></span>
+        </div>
+
+        <div class="question-box" id="q6-box">
+            <div class="question-title">6. CEIDG to:</div>
+            <label><input type="checkbox" name="q6" value="a"> a. Jeden z rejestrów prowadzonych stacjonarnie przez urzędy gmin...</label>
+            <label><input type="checkbox" name="q6" value="b"> b. Rejestr w którym rejestrują się przedsiębiorcy prowadzący jednoosobową działalność gospodarczą.</label>
+            <label><input type="checkbox" name="q6" value="c"> c. Rejestr w którym rejestrują się wspólnicy spółki cywilnej.</label>
+            <label><input type="checkbox" name="q6" value="d"> d. Rejestr w którym rejestrują spółkę jawną.</label>
+            <span class="result-msg" id="msg-q6"></span>
+        </div>
+
+        <div class="question-box open-question">
+            <div class="question-title">7. Business Angels w prawie gospodarczym to...</div>
+            <textarea placeholder="Miejsce na odpowiedź..."></textarea>
+            <div style="color: blue; font-size: 10px;">(Pytanie otwarte - niepodlegające automatycznej ocenie)</div>
+        </div>
+
+        <div class="question-box open-question">
+            <div class="question-title">8. Ustawa Prawo przedsiębiorców to...</div>
+            <textarea placeholder="Miejsce na odpowiedź..."></textarea>
+            <div style="color: blue; font-size: 10px;">(Pytanie otwarte - niepodlegające automatycznej ocenie)</div>
+        </div>
+
+        <div class="question-box" id="q9-box">
+            <div class="question-title">9. W przypadku naruszenia autorskich praw osobistych, twórcy przysługuje:</div>
+            <label><input type="checkbox" name="q9" value="a"> a. Wyłącznie żądanie zaniechania działania.</label>
+            <label><input type="checkbox" name="q9" value="b"> b. Prawo podjęcia czynności mających na celu usunięcie skutków naruszenia.</label>
+            <label><input type="checkbox" name="q9" value="c"> c. Prawo skierowania sprawy na drogę sądową.</label>
+            <label><input type="checkbox" name="q9" value="d"> d. Prawo upublicznienia imienia i nazwiska osoby naruszającej...</label>
+            <span class="result-msg" id="msg-q9"></span>
+        </div>
+
+        <div class="question-box" id="q10-box">
+            <div class="question-title">10. Autorskie prawa majątkowe mogą przejść na inną osobę:</div>
+            <label><input type="checkbox" name="q10" value="a"> a. Na podstawie umowy o przeniesienie praw.</label>
+            <label><input type="checkbox" name="q10" value="b"> b. Na podstawie licencji.</label>
+            <label><input type="checkbox" name="q10" value="c"> c. Na podstawie telefonicznego uzgodnienia między stronami.</label>
+            <label><input type="checkbox" name="q10" value="d"> d. Na podstawie upoważnienia twórcy utworu poświadczonego notarialnie.</label>
+            <span class="result-msg" id="msg-q10"></span>
+        </div>
+
+        <center>
+            <button type="button" onclick="sprawdzWyniki()">SPRAWDŹ WYNIKI</button>
+            <button type="reset" onclick="resetQuiz()">RESETUJ</button>
+        </center>
+
+    </form>
+
+    <div id="summary">
+        <h2>PODSUMOWANIE</h2>
+        <p>Liczba punktów z zadań zamkniętych: <span id="score">0</span> / 7</p>
+        <p style="font-size: 10px; color: #555;">(Pytania otwarte wymagają oceny wykładowcy)</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; border-top: 1px solid #000; padding-top: 5px; font-size: 10px;">
+        Copyright © 2005 Katedra Prawa. All Rights Reserved. Optimized for Internet Explorer 6.0.
+    </div>
+
+</div>
+
+<script>
+    // KLUCZ ODPOWIEDZI
+    // Pamiętaj: W JS tablice są 0-indexowane, ale nazwy pytań mam q1, q3...
+    const correctAnswers = {
+        'q1': ['a'],         // Prawo przedsiębiorców reguluje zasady (TAK)
+        'q3': ['a', 'b'],    // Prawa pokrewne: pierwsze wydania, fonogramy (płyta CD to nośnik)
+        'q4': ['a'],         // Majątkowe: rozporządzanie (zarządzanie to szersze/inne pojęcie, c i d to osobiste)
+        'q5': ['a', 'b'],    // Plagiat: całość lub część
+        'q6': ['b', 'c'],    // CEIDG: JDG oraz wspólnicy spółki cywilnej
+        'q9': ['b'],         // Naruszenie osobistych: usunięcie skutków (Art 78). 'a' błędne przez "wyłącznie".
+        'q10': ['a']         // Przejście praw: Umowa o przeniesienie (Licencja to upoważnienie, nie przejście per se)
+    };
+
+    function sprawdzWyniki() {
+        let score = 0;
+        let totalClosed = 0;
+
+        // Iterujemy po kluczu odpowiedzi
+        for (let questionName in correctAnswers) {
+            totalClosed++;
+            
+            // Pobierz wszystkie zaznaczone checkboxy dla danego pytania
+            let checkboxes = document.querySelectorAll(`input[name="${questionName}"]:checked`);
+            let userAnswers = Array.from(checkboxes).map(cb => cb.value);
+            
+            // Pobierz poprawne odpowiedzi dla tego pytania
+            let correctSet = correctAnswers[questionName];
+
+            // Logika sprawdzania: 
+            // 1. Musi być taka sama liczba zaznaczonych co poprawnych.
+            // 2. Każda zaznaczona musi być w zbiorze poprawnych.
+            
+            let isCorrect = false;
+            
+            if (userAnswers.length === correctSet.length) {
+                // Załóżmy że jest dobrze, sprawdźmy czy nie ma błędu
+                isCorrect = userAnswers.every(val => correctSet.includes(val));
+            }
+
+            // Wyświetlenie wyniku obok pytania
+            let msgSpan = document.getElementById(`msg-${questionName}`);
+            msgSpan.style.display = "inline";
+
+            if (isCorrect) {
+                score++;
+                msgSpan.textContent = "[DOBRZE]";
+                msgSpan.className = "result-msg correct";
+            } else {
+                msgSpan.textContent = "[ŹLE - Poprawna: " + correctSet.join(", ") + "]";
+                msgSpan.className = "result-msg incorrect";
+            }
+        }
+
+        // Pokaż podsumowanie
+        let summaryDiv = document.getElementById('summary');
+        let scoreSpan = document.getElementById('score');
+        
+        scoreSpan.textContent = score;
+        summaryDiv.style.display = "block";
+        
+        // Przewiń do podsumowania
+        summaryDiv.scrollIntoView({behavior: "smooth"});
+    }
+
+    function resetQuiz() {
+        // Ukryj komunikaty
+        let msgs = document.querySelectorAll('.result-msg');
+        msgs.forEach(span => span.style.display = 'none');
+        document.getElementById('summary').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
