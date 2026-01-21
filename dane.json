@@ -13,17 +13,45 @@
             "type": "folder",
             "content": [
                 {
-                    "name": "Kurs wyrównawczy z matematyki (2025:26z) - Kurs (DARIUSZ PĄCZKO)",
+                    "name": "Przedmiot humanistyczno- społeczny I- Finanse w życiu człowieka i społeczeństwa (2025-26z) - Wykład (RADOSŁAW MIĄŻEK)",
                     "type": "folder",
                     "content": []
                 },
                 {
-                    "name": "Przedmiot humanistyczno- społeczny I- Finanse w życiu człowieka i społeczeństwa (2025:26z) - Wykład (RADOSŁAW MIĄŻEK)",
+                    "name": "Prawo autorskie i gospodarcze (2025-26z) - Wykład (MONIKA SZYMURA)",
                     "type": "folder",
                     "content": []
                 },
                 {
-                    "name": "Algorytmy i struktury danych (2025:26z) (MARIUSZ SOBOL)",
+                    "name": "Technologia informacyjna (2025-26z)",
+                    "type": "folder",
+                    "content": [
+                        {
+                            "name": "ćwiczenia - (OSKAR ZMARZŁY)",
+                            "type": "folder",
+                            "content": [
+                                {
+                                    "name": "lista boole.pdf",
+                                    "type": "file",
+                                    "format": "pdf",
+                                    "url": "/pliki/1 semestr/Technologia informacyjna (2025-26z)/ćwiczenia - (OSKAR ZMARZŁY)/lista boole.pdf"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "przecieki",
+                            "type": "folder",
+                            "content": []
+                        },
+                        {
+                            "name": "wykład - (ANNA ZATWARNICKA)",
+                            "type": "folder",
+                            "content": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Algorytmy i struktury danych (2025-26z) (MARIUSZ SOBOL)",
                     "type": "folder",
                     "content": [
                         {
@@ -44,53 +72,162 @@
                     ]
                 },
                 {
-                    "name": "Technologia informacyjna (2025:26z)",
+                    "name": "Programowanie I (2025-26z) - (ARTUR PALA)",
+                    "type": "folder",
+                    "content": []
+                },
+                {
+                    "name": "Bezpieczeństwo pracy i ergonomia (2025-26z) - Wykład (MICHAŁ KUNICKI)",
                     "type": "folder",
                     "content": [
-                        {
-                            "name": "ćwiczenia - (OSKAR ZMARZŁY)",
-                            "type": "folder",
-                            "content": [
-                                {
-                                    "name": "lista boole.pdf",
-                                    "type": "file",
-                                    "format": "pdf",
-                                    "url": "/pliki/1 semestr/Technologia informacyjna (2025:26z)/ćwiczenia - (OSKAR ZMARZŁY)/lista boole.pdf"
-                                }
-                            ]
-                        },
                         {
                             "name": "przecieki",
                             "type": "folder",
                             "content": []
                         },
                         {
-                            "name": "wykład - (ANNA ZATWARNICKA)",
+                            "name": "wykład",
                             "type": "folder",
                             "content": []
                         }
                     ]
                 },
                 {
-                    "name": "Programowanie I (2025:26z) - (ARTUR PALA)",
+                    "name": "Kurs wyrównawczy z matematyki (2025-26z) - Kurs (DARIUSZ PĄCZKO)",
                     "type": "folder",
                     "content": []
                 },
                 {
-                    "name": "Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)",
+                    "name": "Analiza matematyczna I (2025-26z) - Wykład (VOLODYMYR FLYUD)",
+                    "type": "folder",
+                    "content": [
+                        {
+                            "name": "przecieki",
+                            "type": "folder",
+                            "content": [
+                                {
+                                    "name": "TEST ZALICZENIOWY Z WYKŁADU ANALIZA MATEMATYCZNA I_Grupa Wykładowa 1._ Przegląd próby _ PO.pdf",
+                                    "type": "file",
+                                    "format": "pdf",
+                                    "url": "/pliki/1 semestr/Analiza matematyczna I (2025-26z) - Wykład (VOLODYMYR FLYUD)/przecieki/TEST ZALICZENIOWY Z WYKŁADU ANALIZA MATEMATYCZNA I_Grupa Wykładowa 1._ Przegląd próby _ PO.pdf"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "ćwiczenia",
+                            "type": "folder",
+                            "content": []
+                        },
+                        {
+                            "name": "wykład",
+                            "type": "folder",
+                            "content": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Organizacja sprzętu komputerowego (2025-26z)",
+                    "type": "folder",
+                    "content": [
+                        {
+                            "name": "przecieki",
+                            "type": "folder",
+                            "content": [
+                                {
+                                    "name": "piekielniak sesja",
+                                    "type": "folder",
+                                    "content": [
+                                        {
+                                            "name": "618388558_2451186502005291_7282580939121560957_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/618388558_2451186502005291_7282580939121560957_n.jpg"
+                                        },
+                                        {
+                                            "name": "615052046_1210588423933686_170171809036715392_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/615052046_1210588423933686_170171809036715392_n.jpg"
+                                        },
+                                        {
+                                            "name": "616538972_1348086587089102_7240016503225015739_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/616538972_1348086587089102_7240016503225015739_n.jpg"
+                                        },
+                                        {
+                                            "name": "617499403_1636487130856709_8099285523618035104_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/617499403_1636487130856709_8099285523618035104_n.jpg"
+                                        },
+                                        {
+                                            "name": "617445037_904804132032638_3942110398791248772_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/617445037_904804132032638_3942110398791248772_n.jpg"
+                                        },
+                                        {
+                                            "name": "615404879_25522972817359019_7889199772051971700_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/615404879_25522972817359019_7889199772051971700_n.jpg"
+                                        },
+                                        {
+                                            "name": "616554505_893664440290598_1351602928036580721_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/616554505_893664440290598_1351602928036580721_n.jpg"
+                                        },
+                                        {
+                                            "name": "613889090_905767065124094_6586926528490340172_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/613889090_905767065124094_6586926528490340172_n.jpg"
+                                        },
+                                        {
+                                            "name": "615729096_1211084584557460_5514379426732678047_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/615729096_1211084584557460_5514379426732678047_n.jpg"
+                                        },
+                                        {
+                                            "name": "614906614_1495632885896894_337155224988750931_n.jpg",
+                                            "type": "file",
+                                            "format": "img",
+                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025-26z)/przecieki/piekielniak sesja/614906614_1495632885896894_337155224988750931_n.jpg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "wykład - (PAWEŁ PIEKIELNY)",
+                            "type": "folder",
+                            "content": []
+                        },
+                        {
+                            "name": "laboratoria - (JAKUB GŁADYSZ)",
+                            "type": "folder",
+                            "content": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)",
                     "type": "folder",
                     "content": [
                         {
                             "name": "sylabus_otw_103239-nowy.pdf",
                             "type": "file",
                             "format": "pdf",
-                            "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/sylabus_otw_103239-nowy.pdf"
+                            "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/sylabus_otw_103239-nowy.pdf"
                         },
                         {
                             "name": "zasady zaliczenia ćwiczeń.rtf",
                             "type": "file",
                             "format": "file",
-                            "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/zasady zaliczenia ćwiczeń.rtf"
+                            "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/zasady zaliczenia ćwiczeń.rtf"
                         },
                         {
                             "name": "ćwiczenia",
@@ -110,55 +247,55 @@
                                     "name": "Wykład 9- funkcje wymierne - ułamki proste.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/Wykład 9- funkcje wymierne - ułamki proste.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/Wykład 9- funkcje wymierne - ułamki proste.pdf"
                                 },
                                 {
                                     "name": "Wykład 6- Układy równań liniowych cz. 1.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/Wykład 6- Układy równań liniowych cz. 1.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/Wykład 6- Układy równań liniowych cz. 1.pdf"
                                 },
                                 {
                                     "name": "Wykład 7- Układy równań liniowych cz. 2.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/Wykład 7- Układy równań liniowych cz. 2.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/Wykład 7- Układy równań liniowych cz. 2.pdf"
                                 },
                                 {
                                     "name": "Wykład 8- Wielomiany.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/Wykład 8- Wielomiany.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/Wykład 8- Wielomiany.pdf"
                                 },
                                 {
                                     "name": " Wykład 2- Liczby zespolone cz. 2.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/ Wykład 2- Liczby zespolone cz. 2.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/ Wykład 2- Liczby zespolone cz. 2.pdf"
                                 },
                                 {
                                     "name": " Wykład 5- Macierz odwrotna .pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/ Wykład 5- Macierz odwrotna .pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/ Wykład 5- Macierz odwrotna .pdf"
                                 },
                                 {
                                     "name": "Wykład 4- Wyznaczniki.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/Wykład 4- Wyznaczniki.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/Wykład 4- Wyznaczniki.pdf"
                                 },
                                 {
                                     "name": " Wykład 3- Macierze.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/ Wykład 3- Macierze.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/ Wykład 3- Macierze.pdf"
                                 },
                                 {
                                     "name": "Wykład 1- Liczby zespolone cz. 1.pdf",
                                     "type": "file",
                                     "format": "pdf",
-                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/wykład/Wykład 1- Liczby zespolone cz. 1.pdf"
+                                    "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/wykład/Wykład 1- Liczby zespolone cz. 1.pdf"
                                 }
                             ]
                         },
@@ -166,146 +303,9 @@
                             "name": "sylabus_103239-nowy.pdf",
                             "type": "file",
                             "format": "pdf",
-                            "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025:26z) - (ZYTA SZYLICKA)/sylabus_103239-nowy.pdf"
+                            "url": "/pliki/1 semestr/Algebra liniowa z geometrią analityczną (2025-26z) - (ZYTA SZYLICKA)/sylabus_103239-nowy.pdf"
                         }
                     ]
-                },
-                {
-                    "name": "Bezpieczeństwo pracy i ergonomia (2025:26z) - Wykład (MICHAŁ KUNICKI)",
-                    "type": "folder",
-                    "content": [
-                        {
-                            "name": "przecieki",
-                            "type": "folder",
-                            "content": []
-                        },
-                        {
-                            "name": "wykład",
-                            "type": "folder",
-                            "content": []
-                        }
-                    ]
-                },
-                {
-                    "name": "Organizacja sprzętu komputerowego (2025:26z)",
-                    "type": "folder",
-                    "content": [
-                        {
-                            "name": "przecieki",
-                            "type": "folder",
-                            "content": [
-                                {
-                                    "name": "piekielniak sesja",
-                                    "type": "folder",
-                                    "content": [
-                                        {
-                                            "name": "618388558_2451186502005291_7282580939121560957_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/618388558_2451186502005291_7282580939121560957_n.jpg"
-                                        },
-                                        {
-                                            "name": "615052046_1210588423933686_170171809036715392_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/615052046_1210588423933686_170171809036715392_n.jpg"
-                                        },
-                                        {
-                                            "name": "616538972_1348086587089102_7240016503225015739_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/616538972_1348086587089102_7240016503225015739_n.jpg"
-                                        },
-                                        {
-                                            "name": "617499403_1636487130856709_8099285523618035104_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/617499403_1636487130856709_8099285523618035104_n.jpg"
-                                        },
-                                        {
-                                            "name": "617445037_904804132032638_3942110398791248772_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/617445037_904804132032638_3942110398791248772_n.jpg"
-                                        },
-                                        {
-                                            "name": "615404879_25522972817359019_7889199772051971700_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/615404879_25522972817359019_7889199772051971700_n.jpg"
-                                        },
-                                        {
-                                            "name": "616554505_893664440290598_1351602928036580721_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/616554505_893664440290598_1351602928036580721_n.jpg"
-                                        },
-                                        {
-                                            "name": "613889090_905767065124094_6586926528490340172_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/613889090_905767065124094_6586926528490340172_n.jpg"
-                                        },
-                                        {
-                                            "name": "615729096_1211084584557460_5514379426732678047_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/615729096_1211084584557460_5514379426732678047_n.jpg"
-                                        },
-                                        {
-                                            "name": "614906614_1495632885896894_337155224988750931_n.jpg",
-                                            "type": "file",
-                                            "format": "img",
-                                            "url": "/pliki/1 semestr/Organizacja sprzętu komputerowego (2025:26z)/przecieki/piekielniak sesja/614906614_1495632885896894_337155224988750931_n.jpg"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "wykład - (PAWEŁ PIEKIELNY)",
-                            "type": "folder",
-                            "content": []
-                        },
-                        {
-                            "name": "laboratoria - (JAKUB GŁADYSZ)",
-                            "type": "folder",
-                            "content": []
-                        }
-                    ]
-                },
-                {
-                    "name": "Analiza matematyczna I (2025:26z) - Wykład (VOLODYMYR FLYUD)",
-                    "type": "folder",
-                    "content": [
-                        {
-                            "name": "przecieki",
-                            "type": "folder",
-                            "content": [
-                                {
-                                    "name": "TEST ZALICZENIOWY Z WYKŁADU ANALIZA MATEMATYCZNA I_Grupa Wykładowa 1._ Przegląd próby _ PO.pdf",
-                                    "type": "file",
-                                    "format": "pdf",
-                                    "url": "/pliki/1 semestr/Analiza matematyczna I (2025:26z) - Wykład (VOLODYMYR FLYUD)/przecieki/TEST ZALICZENIOWY Z WYKŁADU ANALIZA MATEMATYCZNA I_Grupa Wykładowa 1._ Przegląd próby _ PO.pdf"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "ćwiczenia",
-                            "type": "folder",
-                            "content": []
-                        },
-                        {
-                            "name": "wykład",
-                            "type": "folder",
-                            "content": []
-                        }
-                    ]
-                },
-                {
-                    "name": "Prawo autorskie i gospodarcze (2025:26z) - Wykład (MONIKA SZYMURA)",
-                    "type": "folder",
-                    "content": []
                 }
             ]
         },
