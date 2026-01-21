@@ -5,7 +5,7 @@
     <title>*** ARCHITEKTURA KOMPUTERÓW - MEGA QUIZ 2000 ***</title>
     <style>
         body {
-            background-color: #008080; /* Klasyczny Teal z Windows 95 */
+            background-color: #008080;
             color: #000;
             font-family: "MS Sans Serif", Geneva, sans-serif;
             margin: 0;
@@ -57,12 +57,19 @@
             justify-content: space-between;
         }
 
+        .status-span {
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+        }
+
         .options-table {
             width: 100%;
+            border-collapse: collapse;
         }
 
         .options-table td {
             padding: 5px;
+            border: 1px solid transparent;
         }
 
         .options-table tr:hover {
@@ -85,10 +92,17 @@
             border: 2px outset #fff;
             font-weight: bold;
             cursor: pointer;
+            font-family: "MS Sans Serif", sans-serif;
         }
 
         .win-button:active {
             border: 2px inset #fff;
+        }
+
+        .win-button:disabled {
+            color: #808080;
+            border: 2px solid #808080;
+            cursor: not-allowed;
         }
 
         #result-display {
@@ -100,6 +114,7 @@
             text-align: center;
             font-size: 20px;
             font-weight: bold;
+            font-family: "Courier New", monospace;
         }
 
         footer {
@@ -108,6 +123,33 @@
             text-align: center;
             color: #404040;
         }
+
+        .user-correct-row {
+            background-color: #00FF00 !important;
+            color: black;
+            border: 1px solid black;
+        }
+
+        .user-wrong-row {
+            background-color: #FF0000 !important;
+            color: white;
+            font-weight: bold;
+        }
+
+        .actual-correct-row {
+            background-color: #FFFF00 !important;
+            border: 2px dashed #000 !important;
+            color: #FF0000;
+            font-weight: bold;
+        }
+
+        .actual-correct-row::after {
+            font-size: 0.8em;
+            background: black;
+            color: white;
+            padding: 2px;
+        }
+
     </style>
 </head>
 <body>
@@ -123,9 +165,9 @@
     </div>
 
     <form id="quizForm">
-        <div class="question-card">
-            <div class="question-header">Pytanie 1 <span>Zakończone</span></div>
-            <p>Co oznacza termin „opóźnienie CAS” (CAL) w parametrach pamięci?</p>
+        <div class="question-card" id="card-1">
+            <div class="question-header">Pytanie 1 <span class="status-span" id="status-1">[ ... ]</span></div>
+            <p>Co oznacza termin „opóźnienie CAS” (CL) w parametrach pamięci?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q1" value="a"> a. Całkowity czas zasilania pamięci</label></td></tr>
                 <tr><td><label><input type="radio" name="q1" value="b"> b. Prędkość przesyłania danych na magistrali danych</label></td></tr>
@@ -134,8 +176,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 2 <span>Brak odpowiedzi</span></div>
+        <div class="question-card" id="card-2">
+            <div class="question-header">Pytanie 2 <span class="status-span" id="status-2">[ ... ]</span></div>
             <p>Co oznacza standard ATX12VO?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q2" value="a"> a. To akronim od „Advanced Technology eXtended 12-Volt Only”</label></td></tr>
@@ -145,9 +187,9 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 3 <span>Zakończone</span></div>
-            <p>Co oznacza „ciemny krzem”?</p>
+        <div class="question-card" id="card-3">
+            <div class="question-header">Pytanie 3 <span class="status-span" id="status-3">[ ... ]</span></div>
+            <p>Co oznacza „ciemny krzem” (dark silicon)?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q3" value="a"> a. Rodzaj złośliwego oprogramowania</label></td></tr>
                 <tr><td><label><input type="radio" name="q3" value="b"> b. Uszkodzony procesor</label></td></tr>
@@ -156,9 +198,9 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 4 <span>Zakończone</span></div>
-            <p>Jaką moc może dostarczyć złącze zasilania 12VHPWR w standardzie zasilacza ATX 3?</p>
+        <div class="question-card" id="card-4">
+            <div class="question-header">Pytanie 4 <span class="status-span" id="status-4">[ ... ]</span></div>
+            <p>Jaką moc może dostarczyć złącze zasilania 12VHPWR w standardzie zasilacza ATX 3.0?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q4" value="a"> a. 600 W</label></td></tr>
                 <tr><td><label><input type="radio" name="q4" value="b"> b. 250 W</label></td></tr>
@@ -167,8 +209,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 5 <span>Zakończone</span></div>
+        <div class="question-card" id="card-5">
+            <div class="question-header">Pytanie 5 <span class="status-span" id="status-5">[ ... ]</span></div>
             <p>Jaka jest funkcja informacji SPD przechowywanych w module pamięci?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q5" value="a"> a. Przechowywanie parametrów czasowych i konfiguracyjnych</label></td></tr>
@@ -178,8 +220,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 6 <span>Zakończone</span></div>
+        <div class="question-card" id="card-6">
+            <div class="question-header">Pytanie 6 <span class="status-span" id="status-6">[ ... ]</span></div>
             <p>Które stwierdzenie dotyczące PCI Express (PCIe) jest poprawne?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q6" value="a"> a. Wykorzystuje komunikację szeregową typu punkt-punkt</label></td></tr>
@@ -189,8 +231,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 7 <span>Zakończone</span></div>
+        <div class="question-card" id="card-7">
+            <div class="question-header">Pytanie 7 <span class="status-span" id="status-7">[ ... ]</span></div>
             <p>Co zastąpiło tradycyjną architekturę mostka północnego i południowego w nowoczesnych płytach głównych?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q7" value="a"> a. Mostek AGP</label></td></tr>
@@ -200,8 +242,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 8 <span>Zakończone</span></div>
+        <div class="question-card" id="card-8">
+            <div class="question-header">Pytanie 8 <span class="status-span" id="status-8">[ ... ]</span></div>
             <p>Jeśli karta graficzna pobiera 120 W przy napięciu 12 V, jaka jest wartość prądu (I)?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q8" value="a"> a. 10 A</label></td></tr>
@@ -211,20 +253,20 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 9 <span>Zakończone</span></div>
+        <div class="question-card" id="card-9">
+            <div class="question-header">Pytanie 9 <span class="status-span" id="status-9">[ ... ]</span></div>
             <p>Który rejestr przechowuje adres następnej instrukcji do wykonania?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q9" value="a"> a. Akumulator</label></td></tr>
-                <tr><td><label><input type="radio" name="q9" value="b"> b. Licznik programu</label></td></tr>
+                <tr><td><label><input type="radio" name="q9" value="b"> b. Licznik programu (Program Counter)</label></td></tr>
                 <tr><td><label><input type="radio" name="q9" value="c"> c. Rejestr stanu</label></td></tr>
                 <tr><td><label><input type="radio" name="q9" value="d"> d. Wskaźnik stosu</label></td></tr>
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 10 <span>Zakończone</span></div>
-            <p>Jaki jest cel przetwarzania potokowego w procesorach?</p>
+        <div class="question-card" id="card-10">
+            <div class="question-header">Pytanie 10 <span class="status-span" id="status-10">[ ... ]</span></div>
+            <p>Jaki jest cel przetwarzania potokowego (pipelining) w procesorach?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q10" value="a"> a. Aby uprościć dekodowanie instrukcji</label></td></tr>
                 <tr><td><label><input type="radio" name="q10" value="b"> b. Aby zmniejszyć zużycie energii</label></td></tr>
@@ -233,8 +275,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 11 <span>Zakończone</span></div>
+        <div class="question-card" id="card-11">
+            <div class="question-header">Pytanie 11 <span class="status-span" id="status-11">[ ... ]</span></div>
             <p>Która z poniższych jest podstawową jednostką SI prądu elektrycznego?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q11" value="a"> a. Wat (W)</label></td></tr>
@@ -244,19 +286,19 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 12 <span>Zakończone</span></div>
+        <div class="question-card" id="card-12">
+            <div class="question-header">Pytanie 12 <span class="status-span" id="status-12">[ ... ]</span></div>
             <p>Co oznacza litera „B” we wzorze na zapis zmiennoprzecinkowy L = M * B^E?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q12" value="a"> a. Mantysę</label></td></tr>
                 <tr><td><label><input type="radio" name="q12" value="b"> b. Wykładnik</label></td></tr>
-                <tr><td><label><input type="radio" name="q12" value="c"> c. Podstawę systemu</label></td></tr>
+                <tr><td><label><input type="radio" name="q12" value="c"> c. Podstawę systemu (Base)</label></td></tr>
                 <tr><td><label><input type="radio" name="q12" value="d"> d. Znak liczby</label></td></tr>
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 13 <span>Zakończone</span></div>
+        <div class="question-card" id="card-13">
+            <div class="question-header">Pytanie 13 <span class="status-span" id="status-13">[ ... ]</span></div>
             <p>Maksymalny transfer mocy ze źródła do obciążenia występuje, gdy:</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q13" value="a"> a. Rezystancja obciążenia jest nieskończona</label></td></tr>
@@ -266,8 +308,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 14 <span>Zakończone</span></div>
+        <div class="question-card" id="card-14">
+            <div class="question-header">Pytanie 14 <span class="status-span" id="status-14">[ ... ]</span></div>
             <p>Ile bitów jest przypisanych do wykładnika (cechy) w 32-bitowym standardzie IEEE 754?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q14" value="a"> a. 1 bit</label></td></tr>
@@ -277,8 +319,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 15 <span>Zakończone</span></div>
+        <div class="question-card" id="card-15">
+            <div class="question-header">Pytanie 15 <span class="status-span" id="status-15">[ ... ]</span></div>
             <p>Która z poniższych jest główną różnicą między pamięciami DRAM i SRAM?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q15" value="a"> a. DRAM wykorzystuje kondensator i tranzystor, podczas gdy SRAM wykorzystuje układ przerzutnika</label></td></tr>
@@ -288,8 +330,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 16 <span>Zakończone</span></div>
+        <div class="question-card" id="card-16">
+            <div class="question-header">Pytanie 16 <span class="status-span" id="status-16">[ ... ]</span></div>
             <p>Jakie napięcia wyjściowe są dostępne w zasilaczach ATX?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q16" value="a"> a. +12 V, -5 V, +3,3 V</label></td></tr>
@@ -299,20 +341,20 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 17 <span>Zakończone</span></div>
+        <div class="question-card" id="card-17">
+            <div class="question-header">Pytanie 17 <span class="status-span" id="status-17">[ ... ]</span></div>
             <p>Która architektura Flynna wykorzystuje wiele procesorów pracujących niezależnie na różnych danych?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q17" value="a"> a. MISD</label></td></tr>
-                <tr><td><label><input type="radio" name="q17" value="b"> b. MIMD</label></td></tr>
+                <tr><td><label><input type="radio" name="q17" value="b"> b. MIMD (Multiple Instruction, Multiple Data)</label></td></tr>
                 <tr><td><label><input type="radio" name="q17" value="c"> c. SIMD</label></td></tr>
                 <tr><td><label><input type="radio" name="q17" value="d"> d. SISD</label></td></tr>
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 18 <span>Zakończone</span></div>
-            <p>Jaki jest wynik dodania liczb binarnych „1100” i „1010”?</p>
+        <div class="question-card" id="card-18">
+            <div class="question-header">Pytanie 18 <span class="status-span" id="status-18">[ ... ]</span></div>
+            <p>Jaki jest wynik dodania liczb binarnych „1100” (12) i „1010” (10)?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q18" value="a"> a. 11110</label></td></tr>
                 <tr><td><label><input type="radio" name="q18" value="b"> b. 10110</label></td></tr>
@@ -321,8 +363,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 19 <span>Zakończone</span></div>
+        <div class="question-card" id="card-19">
+            <div class="question-header">Pytanie 19 <span class="status-span" id="status-19">[ ... ]</span></div>
             <p>Do czego odnosi się termin „architektura superskalarna”?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q19" value="a"> a. Procesor bez sygnału zegarowego</label></td></tr>
@@ -332,8 +374,8 @@
             </table>
         </div>
 
-        <div class="question-card">
-            <div class="question-header">Pytanie 20 <span>Zakończone</span></div>
+        <div class="question-card" id="card-20">
+            <div class="question-header">Pytanie 20 <span class="status-span" id="status-20">[ ... ]</span></div>
             <p>Co oznacza skrót SIMD w technologii procesorów?</p>
             <table class="options-table">
                 <tr><td><label><input type="radio" name="q20" value="a"> a. Synchroniczne dekodowanie instrukcji (SDI)</label></td></tr>
@@ -344,12 +386,16 @@
         </div>
 
         <div id="submit-area">
-            <button type="button" class="win-button" onclick="calculateScore()">SPRAWDŹ MOJE ODPOWIEDZI</button>
+            <button type="button" class="win-button" id="btn-check" onclick="calculateScore()">SPRAWDŹ MOJE ODPOWIEDZI</button>
         </div>
     </form>
 
     <div id="result-display">
+        >>> SYSTEM ANALYSIS COMPLETE <<< <br><br>
         WYNIK: <span id="points">0</span> / 20 <br>
+        <div id="progress-bar" style="border:1px solid #000; width:300px; height:20px; margin: 10px auto; background:white;">
+            <div id="progress-fill" style="width:0%; height:100%; background:blue;"></div>
+        </div>
         <span id="comment"></span>
     </div>
 
@@ -369,25 +415,68 @@ function calculateScore() {
     };
 
     let score = 0;
-    const form = document.getElementById('quizForm');
     
+    document.getElementById('btn-check').disabled = true;
+    document.getElementById('btn-check').innerText = "PRZETWARZANIE...";
+
     for (let i = 1; i <= 20; i++) {
         const qName = 'q' + i;
-        const selected = form.querySelector(`input[name="${qName}"]:checked`);
-        if (selected && selected.value === correctAnswers[qName]) {
+        const statusSpan = document.getElementById('status-' + i);
+        const userInputs = document.getElementsByName(qName);
+        let userSelectedValue = null;
+        let selectedInput = null;
+
+        for (let input of userInputs) {
+            if (input.checked) {
+                userSelectedValue = input.value;
+                selectedInput = input;
+            }
+            input.disabled = true;
+        }
+
+        const correctVal = correctAnswers[qName];
+        let isCorrect = false;
+
+        if (userSelectedValue === correctVal) {
             score++;
+            isCorrect = true;
+            statusSpan.innerText = "[ OK ]";
+            statusSpan.style.color = "green";
+            
+            if (selectedInput) {
+                selectedInput.parentElement.parentElement.parentElement.classList.add("user-correct-row");
+            }
+
+        } else {
+            statusSpan.innerText = "[ BŁĄD ]";
+            statusSpan.style.color = "red";
+
+            if (selectedInput) {
+                 selectedInput.parentElement.parentElement.parentElement.classList.add("user-wrong-row");
+            }
+
+            for (let input of userInputs) {
+                if (input.value === correctVal) {
+                    input.parentElement.parentElement.parentElement.classList.add("actual-correct-row");
+                }
+            }
         }
     }
 
     document.getElementById('points').innerText = score;
     const comment = document.getElementById('comment');
-    if (score === 20) comment.innerText = "GENIALNIE! Jesteś Bogiem Architektury!";
-    else if (score > 15) comment.innerText = "Bardzo dobrze! Prawie jak ekspert!";
-    else if (score > 10) comment.innerText = "Może być, ale poczytaj jeszcze o procesorach.";
-    else comment.innerText = "Słabo... wejdź na naszą grupę dyskusyjną i zapytaj o pomoc.";
+    
+    const percentage = (score / 20) * 100;
+    document.getElementById('progress-fill').style.width = percentage + "%";
+
+    if (score === 20) comment.innerText = "GENIALNIE! Jesteś Bogiem Architektury! (A+ Student)";
+    else if (score >= 15) comment.innerText = "Bardzo dobrze! System działa stabilnie.";
+    else if (score >= 10) comment.innerText = "Wykryto błędy w obliczeniach. Wymagana nauka.";
+    else comment.innerText = "CRITICAL ERROR. Słabo... Zalecany format wiedzy.";
 
     document.getElementById('result-display').style.display = 'block';
-    window.scrollTo(0, document.body.scrollHeight);
+    
+    document.getElementById('result-display').scrollIntoView({behavior: "smooth"});
 }
 </script>
 
