@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>*** ALGORYTMY I STRUKTURY DANYCH - MEGA QUIZ 2000 ***</title>
+    <style>
+        body {
+            background-color: #008080;
+            color: #000;
+            font-family: "MS Sans Serif", Geneva, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #webpage {
+            width: 750px;
+            margin: 0 auto;
+            background-color: #C0C0C0;
+            border: 3px outset #fff;
+            padding: 10px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+        }
+
+        header {
+            background: linear-gradient(90deg, #000080, #0080FF);
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px inset #fff;
+        }
+
+        .marquee-box {
+            background: #000;
+            color: #0f0;
+            border: 2px inset #808080;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 2px inset #fff;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .question-header {
+            background: #e0e0e0;
+            border-bottom: 1px solid #808080;
+            padding: 5px;
+            margin: -10px -10px 10px -10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .status-span {
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+        }
+
+        .options-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .options-table td {
+            padding: 5px;
+            border: 1px solid transparent;
+        }
+
+        .options-table tr:hover {
+            background-color: #ffffcc;
+        }
+
+        input[type="radio"] {
+            cursor: pointer;
+        }
+
+        #submit-area {
+            text-align: center;
+            padding: 20px;
+            border-top: 3px double #808080;
+        }
+
+        .win-button {
+            padding: 10px 30px;
+            background: #C0C0C0;
+            border: 2px outset #fff;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "MS Sans Serif", sans-serif;
+        }
+
+        .win-button:active {
+            border: 2px inset #fff;
+        }
+
+        .win-button:disabled {
+            color: #808080;
+            border: 2px solid #808080;
+            cursor: not-allowed;
+        }
+
+        #result-display {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffff00;
+            border: 4px dashed #ff0000;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: "Courier New", monospace;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 10px;
+            text-align: center;
+            color: #404040;
+        }
+
+        .user-correct-row {
+            background-color: #00FF00 !important;
+            color: black;
+            border: 1px solid black;
+        }
+
+        .user-wrong-row {
+            background-color: #FF0000 !important;
+            color: white;
+            font-weight: bold;
+        }
+
+        .actual-correct-row {
+            background-color: #FFFF00 !important;
+            border: 2px dashed #000 !important;
+            color: #FF0000;
+            font-weight: bold;
+        }
+
+        .actual-correct-row::after {
+            content: " <<< TO JEST POPRAWNE";
+            font-size: 0.8em;
+            background: black;
+            color: white;
+            padding: 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="webpage">
+    <header>
+        <span>Quiz_Algorytmy_v2.0.exe</span>
+        <span>[ _ ] [ 口 ] [ X ]</span>
+    </header>
+
+    <div class="marquee-box">
+        <marquee scrollamount="5">>>> SPRAWDŹ SWOJĄ WIEDZĘ Z ALGORYTMÓW I STRUKTUR DANYCH <<< ZALICZENIE GWARANTOWANE! >>></marquee>
+    </div>
+
+    <form id="quizForm">
+        <div class="question-card" id="card-1">
+            <div class="question-header">Pytanie 1 <span class="status-span" id="status-1">[ ... ]</span></div>
+            <p>W notacji Landaua ograniczenie dolne oznaczamy literą:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q1" value="a"> a) O (duże O)</label></td></tr>
+                <tr><td><label><input type="radio" name="q1" value="b"> b) Θ (Theta)</label></td></tr>
+                <tr><td><label><input type="radio" name="q1" value="c"> c) Ω (Omega)</label></td></tr>
+                <tr><td><label><input type="radio" name="q1" value="d"> d) Σ (Sigma)</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-2">
+            <div class="question-header">Pytanie 2 <span class="status-span" id="status-2">[ ... ]</span></div>
+            <p>W notacji Landaua górne ograniczenie oznaczamy literą:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q2" value="a"> a) O (duże O)</label></td></tr>
+                <tr><td><label><input type="radio" name="q2" value="b"> b) Θ (Theta)</label></td></tr>
+                <tr><td><label><input type="radio" name="q2" value="c"> c) Ω (Omega)</label></td></tr>
+                <tr><td><label><input type="radio" name="q2" value="d"> d) Σ (Sigma)</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-3">
+            <div class="question-header">Pytanie 3 <span class="status-span" id="status-3">[ ... ]</span></div>
+            <p>W notacji Landaua ograniczenie obustronne (dokładne) oznaczamy literą:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q3" value="a"> a) O (duże O)</label></td></tr>
+                <tr><td><label><input type="radio" name="q3" value="b"> b) Θ (Theta)</label></td></tr>
+                <tr><td><label><input type="radio" name="q3" value="c"> c) Ω (Omega)</label></td></tr>
+                <tr><td><label><input type="radio" name="q3" value="d"> d) Σ (Sigma)</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-4">
+            <div class="question-header">Pytanie 4 <span class="status-span" id="status-4">[ ... ]</span></div>
+            <p>Przy obliczaniu złożoności obliczeniowej stosujemy oznaczenia A(n), W(n), w(n). Oznaczenie A(n) oznacza złożoność:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q4" value="a"> a) optymistyczną</label></td></tr>
+                <tr><td><label><input type="radio" name="q4" value="b"> b) oczekiwaną (średnią)</label></td></tr>
+                <tr><td><label><input type="radio" name="q4" value="c"> c) pesymistyczną</label></td></tr>
+                <tr><td><label><input type="radio" name="q4" value="d"> d) najgorszego przypadku</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-5">
+            <div class="question-header">Pytanie 5 <span class="status-span" id="status-5">[ ... ]</span></div>
+            <p>Przy obliczaniu złożoności... Oznaczenie w(n) oznacza złożoność:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q5" value="a"> a) optymistyczną (najlepszego przypadku)</label></td></tr>
+                <tr><td><label><input type="radio" name="q5" value="b"> b) średniego przypadku</label></td></tr>
+                <tr><td><label><input type="radio" name="q5" value="c"> c) oczekiwaną</label></td></tr>
+                <tr><td><label><input type="radio" name="q5" value="d"> d) pesymistyczną</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-6">
+            <div class="question-header">Pytanie 6 <span class="status-span" id="status-6">[ ... ]</span></div>
+            <p>Złożoność obliczeniowa wyznaczenia n-tego wyrazu ciągu Fibonacciego w sposób iteracyjny jest... od złożoności metody rekurencyjnej:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q6" value="a"> a) większa</label></td></tr>
+                <tr><td><label><input type="radio" name="q6" value="b"> b) mniejsza</label></td></tr>
+                <tr><td><label><input type="radio" name="q6" value="c"> c) taka sama</label></td></tr>
+                <tr><td><label><input type="radio" name="q6" value="d"> d) żadne z powyższych</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-7">
+            <div class="question-header">Pytanie 7 <span class="status-span" id="status-7">[ ... ]</span></div>
+            <p>Złożoność obliczeniowa wyznaczenia silni n w sposób rekurencyjny jest... złożoności obliczeniowej metody iteracyjnej:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q7" value="a"> a) znacznie większa od</label></td></tr>
+                <tr><td><label><input type="radio" name="q7" value="b"> b) znacznie mniejsza od</label></td></tr>
+                <tr><td><label><input type="radio" name="q7" value="c"> c) innej klasy niż</label></td></tr>
+                <tr><td><label><input type="radio" name="q7" value="d"> d) zbliżona do (tej samej klasy)</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-8">
+            <div class="question-header">Pytanie 8 <span class="status-span" id="status-8">[ ... ]</span></div>
+            <p>Problem skoczka szachowego rozwiązuje się metodą konstrukcji algorytmów:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q8" value="a"> a) dziel i zwyciężaj</label></td></tr>
+                <tr><td><label><input type="radio" name="q8" value="b"> b) algorytmy z powrotami (backtracking)</label></td></tr>
+                <tr><td><label><input type="radio" name="q8" value="c"> c) programowanie dynamiczne</label></td></tr>
+                <tr><td><label><input type="radio" name="q8" value="d"> d) zachłanna</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-9">
+            <div class="question-header">Pytanie 9 <span class="status-span" id="status-9">[ ... ]</span></div>
+            <p>Problem ośmiu hetmanów rozwiązuje się następującą metodą konstrukcji algorytmów:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q9" value="a"> a) dziel i zwyciężaj</label></td></tr>
+                <tr><td><label><input type="radio" name="q9" value="b"> b) programowanie dynamiczne</label></td></tr>
+                <tr><td><label><input type="radio" name="q9" value="c"> c) algorytmy z powrotami</label></td></tr>
+                <tr><td><label><input type="radio" name="q9" value="d"> d) metoda zachłanna</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-10">
+            <div class="question-header">Pytanie 10 <span class="status-span" id="status-10">[ ... ]</span></div>
+            <p>Podany na wykładzie algorytm znajdowania pary najmniej odległych punktów ma złożoność:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q10" value="a"> a) Θ(n²)</label></td></tr>
+                <tr><td><label><input type="radio" name="q10" value="b"> b) Θ(n)</label></td></tr>
+                <tr><td><label><input type="radio" name="q10" value="c"> c) Θ(n log n)</label></td></tr>
+                <tr><td><label><input type="radio" name="q10" value="d"> d) Θ(log n)</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-11">
+            <div class="question-header">Pytanie 11 <span class="status-span" id="status-11">[ ... ]</span></div>
+            <p>W algorytmie znajdowania pary najmniej odległych punktów (dziel i zwyciężaj), pas rozdzielający zbiory ma szerokość:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q11" value="a"> a) d</label></td></tr>
+                <tr><td><label><input type="radio" name="q11" value="b"> b) 2d</label></td></tr>
+                <tr><td><label><input type="radio" name="q11" value="c"> c) d/2</label></td></tr>
+                <tr><td><label><input type="radio" name="q11" value="d"> d) 3d</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-12">
+            <div class="question-header">Pytanie 12 <span class="status-span" id="status-12">[ ... ]</span></div>
+            <p>Sortowanie przez scalanie (Merge Sort) rozwiązuje się metodą:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q12" value="a"> a) algorytmy z powrotami</label></td></tr>
+                <tr><td><label><input type="radio" name="q12" value="b"> b) programowanie dynamiczne</label></td></tr>
+                <tr><td><label><input type="radio" name="q12" value="c"> c) metoda zachłanna</label></td></tr>
+                <tr><td><label><input type="radio" name="q12" value="d"> d) dziel i zwyciężaj</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-13">
+            <div class="question-header">Pytanie 13 <span class="status-span" id="status-13">[ ... ]</span></div>
+            <p>Sortowanie szybkie (Quick Sort) rozwiązuje się metodą:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q13" value="a"> a) algorytmy z powrotami</label></td></tr>
+                <tr><td><label><input type="radio" name="q13" value="b"> b) programowanie dynamiczne</label></td></tr>
+                <tr><td><label><input type="radio" name="q13" value="c"> c) dziel i zwyciężaj</label></td></tr>
+                <tr><td><label><input type="radio" name="q13" value="d"> d) metoda zachłanna</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-14">
+            <div class="question-header">Pytanie 14 <span class="status-span" id="status-14">[ ... ]</span></div>
+            <p>Algorytm Strassena (mnożenie macierzy) działa w oparciu o metodę:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q14" value="a"> a) algorytmy z powrotami</label></td></tr>
+                <tr><td><label><input type="radio" name="q14" value="b"> b) programowanie dynamiczne</label></td></tr>
+                <tr><td><label><input type="radio" name="q14" value="c"> c) dziel i zwyciężaj</label></td></tr>
+                <tr><td><label><input type="radio" name="q14" value="d"> d) metoda zachłanna</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-15">
+            <div class="question-header">Pytanie 15 <span class="status-span" id="status-15">[ ... ]</span></div>
+            <p>Który z podanych poniżej algorytmów działa w oparciu o metodę zachłanną?</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q15" value="a"> a) problem trwałych związków</label></td></tr>
+                <tr><td><label><input type="radio" name="q15" value="b"> b) wyszukiwanie k-tego największego elementu (Quick Select)</label></td></tr>
+                <tr><td><label><input type="radio" name="q15" value="c"> c) szybkie mnożenie ciągu macierzy</label></td></tr>
+                <tr><td><label><input type="radio" name="q15" value="d"> d) wydawanie reszty (przy najmniejszej liczbie monet)</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-16">
+            <div class="question-header">Pytanie 16 <span class="status-span" id="status-16">[ ... ]</span></div>
+            <p>Który z podanych algorytmów działa w oparciu o metodę algorytmów z powrotami?</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q16" value="a"> a) problem trwałych związków</label></td></tr>
+                <tr><td><label><input type="radio" name="q16" value="b"> b) Quick select</label></td></tr>
+                <tr><td><label><input type="radio" name="q16" value="c"> c) szybkie mnożenie macierzy</label></td></tr>
+                <tr><td><label><input type="radio" name="q16" value="d"> d) wydawanie reszty (wariant ogólny)</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-17">
+            <div class="question-header">Pytanie 17 <span class="status-span" id="status-17">[ ... ]</span></div>
+            <p>Algorytm Kadane’a (maksymalna podtablica) bazuje na metodzie:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q17" value="a"> a) algorytmy z powrotami</label></td></tr>
+                <tr><td><label><input type="radio" name="q17" value="b"> b) programowanie dynamiczne</label></td></tr>
+                <tr><td><label><input type="radio" name="q17" value="c"> c) metoda zachłanna</label></td></tr>
+                <tr><td><label><input type="radio" name="q17" value="d"> d) dziel i zwyciężaj</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-18">
+            <div class="question-header">Pytanie 18 <span class="status-span" id="status-18">[ ... ]</span></div>
+            <p>W problemie rozcinania pręta, dla pręta o długości 4 można go pociąć na:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q18" value="a"> a) 5 sposobów (biorąc pod uwagę sumy długości)</label></td></tr>
+                <tr><td><label><input type="radio" name="q18" value="b"> b) 7 sposobów</label></td></tr>
+                <tr><td><label><input type="radio" name="q18" value="c"> c) 9 sposobów</label></td></tr>
+                <tr><td><label><input type="radio" name="q18" value="d"> d) 3 sposoby</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-19">
+            <div class="question-header">Pytanie 19 <span class="status-span" id="status-19">[ ... ]</span></div>
+            <p>W problemie wyboru zajęć (niezachodzące na siebie), wybieramy zajęcia w kolejności:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q19" value="a"> a) od tych co zaczynają się najszybciej</label></td></tr>
+                <tr><td><label><input type="radio" name="q19" value="b"> b) od tych co kończą się najszybciej</label></td></tr>
+                <tr><td><label><input type="radio" name="q19" value="c"> c) od najkrótszych</label></td></tr>
+                <tr><td><label><input type="radio" name="q19" value="d"> d) od najdłuższych</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-20">
+            <div class="question-header">Pytanie 20 <span class="status-span" id="status-20">[ ... ]</span></div>
+            <p>Metoda sortowania, w której elementy są rozdzielane względem pivota (niekiedy mediany)... to:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q20" value="a"> a) bąbelkowe</label></td></tr>
+                <tr><td><label><input type="radio" name="q20" value="b"> b) szybkie (Quick Sort)</label></td></tr>
+                <tr><td><label><input type="radio" name="q20" value="c"> c) przez wybieranie</label></td></tr>
+                <tr><td><label><input type="radio" name="q20" value="d"> d) Shella</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-21">
+            <div class="question-header">Pytanie 21 <span class="status-span" id="status-21">[ ... ]</span></div>
+            <p>Metoda sortowania, w której sortujemy elementy odległe od siebie o pewien odstęp h... to:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q21" value="a"> a) bąbelkowe</label></td></tr>
+                <tr><td><label><input type="radio" name="q21" value="b"> b) szybkie</label></td></tr>
+                <tr><td><label><input type="radio" name="q21" value="c"> c) przez wybieranie</label></td></tr>
+                <tr><td><label><input type="radio" name="q21" value="d"> d) Shella</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-22">
+            <div class="question-header">Pytanie 22 <span class="status-span" id="status-22">[ ... ]</span></div>
+            <p>W sortowaniu bąbelkowym w jednym pełnym przebiegu pętli wewnętrznej:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q22" value="a"> a) Najmniejszy element trafia na początek</label></td></tr>
+                <tr><td><label><input type="radio" name="q22" value="b"> b) Cała tablica zostaje posortowana</label></td></tr>
+                <tr><td><label><input type="radio" name="q22" value="c"> c) Największy element "wypływa" na swoją pozycję (koniec)</label></td></tr>
+                <tr><td><label><input type="radio" name="q22" value="d"> d) Nic szczególnego się nie dzieje</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-23">
+            <div class="question-header">Pytanie 23 <span class="status-span" id="status-23">[ ... ]</span></div>
+            <p>Która z struktur danych wykorzystuje się w problemie Josephusa?</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q23" value="a"> a) drzewo binarne</label></td></tr>
+                <tr><td><label><input type="radio" name="q23" value="b"> b) stos</label></td></tr>
+                <tr><td><label><input type="radio" name="q23" value="c"> c) kolejka</label></td></tr>
+                <tr><td><label><input type="radio" name="q23" value="d"> d) lista cykliczna</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-24">
+            <div class="question-header">Pytanie 24 <span class="status-span" id="status-24">[ ... ]</span></div>
+            <p>Jaką strukturę wykorzystuje algorytm obliczający wyrażenie w Odwrotnej Notacji Polskiej (RPN)?</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q24" value="a"> a) drzewo binarne</label></td></tr>
+                <tr><td><label><input type="radio" name="q24" value="b"> b) stos</label></td></tr>
+                <tr><td><label><input type="radio" name="q24" value="c"> c) kolejka</label></td></tr>
+                <tr><td><label><input type="radio" name="q24" value="d"> d) lista cykliczna</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-25">
+            <div class="question-header">Pytanie 25 <span class="status-span" id="status-25">[ ... ]</span></div>
+            <p>W drzewach AVL:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q25" value="a"> a) Wysokości lewego i prawego poddrzewa każdego węzła różnią się co najwyżej o 1</label></td></tr>
+                <tr><td><label><input type="radio" name="q25" value="b"> b) Wszystkie liście znajdują się na tym samym poziomie</label></td></tr>
+                <tr><td><label><input type="radio" name="q25" value="c"> c) Korzeń jest zawsze czarny</label></td></tr>
+                <tr><td><label><input type="radio" name="q25" value="d"> d) Każdy węzeł ma dokładnie dwóch synów</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-26">
+            <div class="question-header">Pytanie 26 <span class="status-span" id="status-26">[ ... ]</span></div>
+            <p>Aby w grafie nieskierowanym istniał cykl Eulera:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q26" value="a"> a) każdy wierzchołek musi być parzystego stopnia</label></td></tr>
+                <tr><td><label><input type="radio" name="q26" value="b"> b) każdy wierzchołek musi być nieparzystego stopnia</label></td></tr>
+                <tr><td><label><input type="radio" name="q26" value="c"> c) dokładnie dwa wierzchołki muszą być nieparzyste</label></td></tr>
+                <tr><td><label><input type="radio" name="q26" value="d"> d) graf musi być drzewem</label></td></tr>
+            </table>
+        </div>
+
+        <div class="question-card" id="card-27">
+            <div class="question-header">Pytanie 27 <span class="status-span" id="status-27">[ ... ]</span></div>
+            <p>Droga Hamiltona to droga w grafie, która:</p>
+            <table class="options-table">
+                <tr><td><label><input type="radio" name="q27" value="a"> a) przechodzi przez każdą krawędź dokładnie jeden raz</label></td></tr>
+                <tr><td><label><input type="radio" name="q27" value="b"> b) przechodzi przez każdy wierzchołek dokładnie jeden raz</label></td></tr>
+                <tr><td><label><input type="radio" name="q27" value="c"> c) jest najkrótszą drogą między dwoma punktami</label></td></tr>
+                <tr><td><label><input type="radio" name="q27" value="d"> d) zawiera cykl ujemny</label></td></tr>
+            </table>
+        </div>
+
+        <div id="submit-area">
+            <button type="button" class="win-button" id="btn-check" onclick="calculateScore()">SPRAWDŹ MOJE ODPOWIEDZI</button>
+        </div>
+    </form>
+
+    <div id="result-display">
+        >>> SYSTEM ANALYSIS COMPLETE <<< <br><br>
+        WYNIK: <span id="points">0</span> / 27 <br>
+        <div id="progress-bar" style="border:1px solid #000; width:300px; height:20px; margin: 10px auto; background:white;">
+            <div id="progress-fill" style="width:0%; height:100%; background:blue;"></div>
+        </div>
+        <span id="comment"></span>
+    </div>
+
+    <footer>
+        <p>Copyright (c) 2004 Informatyka-Quiz-Fan. Wszystkie prawa zastrzeżone.</p>
+        <p>Strona zoptymalizowana dla Internet Explorer 6.0</p>
+    </footer>
+</div>
+
+<script>
+function calculateScore() {
+    const correctAnswers = {
+        q1: 'c', q2: 'a', q3: 'b', q4: 'b', q5: 'a',
+        q6: 'b', q7: 'd', q8: 'b', q9: 'c', q10: 'c',
+        q11: 'b', q12: 'd', q13: 'c', q14: 'c', q15: 'd',
+        q16: 'd', q17: 'b', q18: 'a', q19: 'b', q20: 'b',
+        q21: 'd', q22: 'c', q23: 'd', q24: 'b', q25: 'a',
+        q26: 'a', q27: 'b'
+    };
+
+    let score = 0;
+    
+    document.getElementById('btn-check').disabled = true;
+    document.getElementById('btn-check').innerText = "PRZETWARZANIE...";
+
+    for (let i = 1; i <= 27; i++) {
+        const qName = 'q' + i;
+        const statusSpan = document.getElementById('status-' + i);
+        const userInputs = document.getElementsByName(qName);
+        let userSelectedValue = null;
+        let selectedInput = null;
+
+        for (let input of userInputs) {
+            if (input.checked) {
+                userSelectedValue = input.value;
+                selectedInput = input;
+            }
+            input.disabled = true;
+        }
+
+        const correctVal = correctAnswers[qName];
+
+        if (userSelectedValue === correctVal) {
+            score++;
+            statusSpan.innerText = "[ OK ]";
+            statusSpan.style.color = "green";
+            
+            if (selectedInput) {
+                selectedInput.parentElement.parentElement.parentElement.classList.add("user-correct-row");
+            }
+
+        } else {
+            statusSpan.innerText = "[ BŁĄD ]";
+            statusSpan.style.color = "red";
+
+            if (selectedInput) {
+                 selectedInput.parentElement.parentElement.parentElement.classList.add("user-wrong-row");
+            }
+
+            for (let input of userInputs) {
+                if (input.value === correctVal) {
+                    input.parentElement.parentElement.parentElement.classList.add("actual-correct-row");
+                }
+            }
+        }
+    }
+
+    document.getElementById('points').innerText = score;
+    const comment = document.getElementById('comment');
+    
+    const percentage = (score / 27) * 100;
+    document.getElementById('progress-fill').style.width = percentage + "%";
+
+    if (score === 27) comment.innerText = "GENIALNIE! Jesteś Algorytmicznym Guru!";
+    else if (score >= 20) comment.innerText = "Bardzo dobrze! Znasz złożoność O(n).";
+    else if (score >= 13) comment.innerText = "Wymagana optymalizacja wiedzy.";
+    else comment.innerText = "CRITICAL ERROR. Musisz potrenować.";
+
+    document.getElementById('result-display').style.display = 'block';
+    
+    document.getElementById('result-display').scrollIntoView({behavior: "smooth"});
+}
+</script>
+
+</body>
+</html>
